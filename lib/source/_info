@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Dimitri/Documents/amns
+Eadd_amns
+Z1 w1582556794
+Z2 DPx11 amnslibrary 23 amns_definition_package 0 22 DRHlObQ5S0miofY:OM47l2
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:\Users\Dimitri\Documents\amns\sources\add.vhd
+Z6 FC:\Users\Dimitri\Documents\amns\sources\add.vhd
+l0
+L9
+VSX>o1k46hfehQ`N395K5d3
+!s100 AAJ3D5hQnY6H?^D5YWPkZ3
+Z7 OP;C;10.4a;61
+32
+Z8 !s110 1582556799
+!i10b 1
+Z9 !s108 1582556799.000000
+Z10 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\add.vhd|
+Z11 !s107 C:\Users\Dimitri\Documents\amns\sources\add.vhd|
+!i113 1
+Z12 o-work source -O0
+Z13 tExplicit 1
+Aadd_amns_arch
+R2
+R3
+R4
+DEx4 work 8 add_amns 0 22 SX>o1k46hfehQ`N395K5d3
+l22
+L18
+VV5@G2YfF8fYA@KVk5?_>=1
+!s100 ^NDlC<>zFb8UiddAPm1QR3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
