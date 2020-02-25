@@ -11,32 +11,12 @@ use IEEE.STD_LOGIC_1164.all;
 
 package amns_definition_package is
 
- type  polynomial_p19 is array(0 to 2) of integer;
+
+	subtype bit128 is std_logic_vector(127 downto 0);
+	subtype bit129 is std_logic_vector(128 downto 0);						  						  
+	subtype bit64 is std_logic_vector(63 downto 0);
+	subtype bit132 is std_logic_vector(131 downto 0);
 
 
--- Constant amns_sample_p19
--- Represent all the polynomials in Big Endian representation
-  type type_amns_sample_p19 is array(0 to 18) of polynomial_p19;
-  constant amns_sample_p19 : type_amns_sample_p19 := (
-    					(0, 0, 0),   	--  		 0
-    					(0, 0, 1), 		--  		 1
-    					(-1,-1,1), 		--  -X^2 -X +1
-    					(1,-1,-1),		--   X^2 -X -1
-    					(1,-1, 0),      --   X^2 -X
-    					(1,-1, 1),		--   X^2 -X +1
-    					(0, 1,-1),		-- 		  X -1
-    		  			(0, 1, 0),      --        X
-    		  			(0, 1, 1),		-- 		  X +1
-    		  			(-1,0, 1),		--  -X^2    +1
-    		  			(1, 0,-1), 		--   X^2    -1
-    		  			(1, 0, 0),     	--	 X^2
-    		  			(1, 0, 1), 		--   X^2    +1
-    		  			(0,-1, 1),		-- 		 -X +1
-    		  			(-1,1,-1),		-- -X^2  +X -1		
-    		  			(-1,1, 0),		-- -X^2  +X
-    		  			(-1,1, 1),       -- -X^2  +X +1
-    		  			(1, 1,-1), 		--  X^2  +X -1		
-    		  			(0, 0,-1)		--          -1
-    		  			);
-end package amns_definition_package;
+	end package amns_definition_package;
 

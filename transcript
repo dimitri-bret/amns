@@ -1,4 +1,4 @@
-vsim bench.add_amns_tb
+vsim bench.add_pe_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,18 +18,12 @@ vsim bench.add_amns_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 16:07:01 on Feb 24,2020
+# Start time: 15:36:01 on Feb 25,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.add_amns_tb(add_amns_tb_arch)
-# Loading source.add_amns(add_amns_arch)
-run
-run
-run
-run
-run
-run
+# Loading bench.add_pe_tb(add_pe_tb_arch)
+# Loading source.add_pe(add_pe_arch)
 run

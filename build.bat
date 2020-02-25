@@ -1,6 +1,6 @@
 cls
 
-:: set your project  folder here
+:: set your project folder here
 set PROJECTNAME=C:\Users\Dimitri\Documents\amns
 
 
@@ -24,11 +24,11 @@ echo "compile vhdl libs"
 vcom %PROJECTNAME%\sources\amns_definition_package.vhd -work AMNSLibrary
 
 echo "compile vhdl sources"
-vcom -work source %PROJECTNAME%\sources\add.vhd
+vcom -work source %PROJECTNAME%\sources\add_pe.vhd
 
 
 echo "compile vhdl test bench"
-vcom -work bench %PROJECTNAME%\bench\add_tb.vhd    
+vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd    
 			
          
 

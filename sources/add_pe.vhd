@@ -1,29 +1,29 @@
 -- @author Dimitri Bret
--- @date 22/11/2018
--- @description Add polynomial without checking internal reduction
+-- @author Clement Dargein
+-- @description Add function used for the processing element
 library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
-entity add_amns is
+entity add_pe is
 	port (
-		a_i: in polynomial_p19;
-		b_i: in polynomial_p19;
-      sum_o: out polynomial_p19
+		bit129_i: in bit129;
+		bit132_i: in bit132;
+        bit132_o: out bit132
 	   );
-end entity add_amns;
+end entity add_pe;
 
 
-architecture add_amns_arch of add_amns is
+architecture add_pe_arch of add_pe is
 
-signal sum_s: polynomial_p19; 
+	signal bit129_internal_s: bit129;
+	signal bit132_internal_s : bit132;
 
-begin
+	begin
+		bit129_internal_s <= std_logic_vector(unsigned(bit129_i) + unsigned(bit129_i));	
+		bit132_internal_s <=   STD_LOGIC_VECTOR(RESIZE(UNSIGNED(bit129_internal_s), 132));-- pading with zeros the uper bits
 
-	GEN_ADD: for i in 0 to 2 generate 
-            	sum_s(i) <= a_i(i) + b_i(i);                         
-    end generate;
-
-   sum_o <=sum_s;
-end architecture add_amns_arch;
+		bit132_o <= bit132_internal_s;
+end architecture add_pe_arch;

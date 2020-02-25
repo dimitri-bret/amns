@@ -8,44 +8,46 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Dimitri/Documents/amns
-Eadd_amns
-Z1 w1582556794
-Z2 DPx11 amnslibrary 23 amns_definition_package 0 22 DRHlObQ5S0miofY:OM47l2
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Eadd_pe
+Z1 w1582641245
+Z2 DPx11 amnslibrary 23 amns_definition_package 0 22 ?Lo7[4k0V?`3C6zTM2aGc0
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z5 8C:\Users\Dimitri\Documents\amns\sources\add.vhd
-Z6 FC:\Users\Dimitri\Documents\amns\sources\add.vhd
+Z6 8C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd
+Z7 FC:\Users\Dimitri\Documents\amns\sources\add_pe.vhd
 l0
-L9
-VSX>o1k46hfehQ`N395K5d3
-!s100 AAJ3D5hQnY6H?^D5YWPkZ3
-Z7 OP;C;10.4a;61
+L10
+V]CJakbF=67>ZI[jAMLH]z2
+!s100 iOjJYJ_ak>=@aHjC;fHz22
+Z8 OP;C;10.4a;61
 32
-Z8 !s110 1582617925
+Z9 !s110 1582641254
 !i10b 1
-Z9 !s108 1582617925.000000
-Z10 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\add.vhd|
-Z11 !s107 C:\Users\Dimitri\Documents\amns\sources\add.vhd|
+Z10 !s108 1582641254.000000
+Z11 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd|
+Z12 !s107 C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd|
 !i113 1
-Z12 o-work source -O0
-Z13 tExplicit 1
-Aadd_amns_arch
+Z13 o-work source -O0
+Z14 tExplicit 1
+Aadd_pe_arch
 R2
 R3
 R4
-DEx4 work 8 add_amns 0 22 SX>o1k46hfehQ`N395K5d3
-l22
-L18
-VV5@G2YfF8fYA@KVk5?_>=1
-!s100 ^NDlC<>zFb8UiddAPm1QR3
-R7
-32
+R5
+DEx4 work 6 add_pe 0 22 ]CJakbF=67>ZI[jAMLH]z2
+l24
+L19
+VGne`SN04Qa_ioP@n]k>@g1
+!s100 7a7^N;3im2PVW5@NodQD[3
 R8
-!i10b 1
+32
 R9
+!i10b 1
 R10
 R11
-!i113 1
 R12
+!i113 1
 R13
+R14
