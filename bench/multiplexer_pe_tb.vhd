@@ -32,10 +32,10 @@ signal en_i_s: std_logic :='1';
 begin
     en_i_s <= '0' after 50 ns;
 
-MULT64_PE_MAP:  multiplexer_pe port map (bit130_i => bit130_i_s,
-                                         bit128_i => bit128_i_s, 
-                                             en_i => en_i_s,
-					                     bit130_o => bit130_o_s);
+MULTIPLEXER_PE_MAP:  multiplexer_pe port map (bit130_i => bit130_i_s,
+                                              bit128_i => bit128_i_s, 
+                                                  en_i => en_i_s,
+				    	                      bit130_o => bit130_o_s);
 
 
 

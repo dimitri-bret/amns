@@ -1,0 +1,52 @@
+-- @author Dimitri Bret
+-- @author Clement Dargein
+-- @description General Processing Element used for modular multiplication
+library IEEE;
+use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
+library AMNSLibrary;
+use AMNSLibrary.amns_definition_package.all;
+
+entity pe is
+	port (
+        a_i: in bit128;
+        b_i: in bit128;
+        lambda_i: in bit2;
+        s_i: bit132;
+        en0_i: in std_logic;
+        en1_i: in std_logic;
+        s_o: bit132
+	   );
+end entity pe;
+
+
+architecture pe_arch of pe is
+
+    signal ai_bi_s: bit128;
+    signal lamba_ai_bi_s: bit130;
+
+    signal added_to_s_i_s: bit130;
+    signal addition_result_s: bit132;
+    
+
+    begin
+        MULT64_PE: mult64_pe port map(bit64_a_i => a_i,
+                                      bit64_b_i => b_i,
+                                      bit128_o =>ai_bi_s);
+
+        MULT128_2_PE: mult128_2_pe port map(bit128_i => ai_bi_s,
+                                            bit2_i   => lambda_i,
+                                            bit130_o => lamba_ai_bi_s);
+                                  
+        MULTIPLEXER_PE: multiplexer_pe port map(bit130_i => lamba_ai_bi_s,
+                                                bit128_i => ai_bi_s,
+                                                bit130_o => added_to_s_i_s);
+
+        ADD_PE_MAP: add_pe port map(bit130_i => added_to_s_i_s,
+                                    bit132_i => s_i,
+                                    bit132_o => addition_result_s);     --   result = s_i + ai_bi or result = s_i + ai_bi*lambda
+
+        MODULO_PE_MAP: modulo_pe port map( bit132_i => addition_result_s,  -- s_o = result MOD(2^64)
+                                                n_i => en1_i,
+                                                s_o => s_o);
+end architecture pe_arch;
