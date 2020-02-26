@@ -20,7 +20,7 @@ component multiplexer_pe is
              bit130_i: in bit130;
              bit128_i: in bit128;
              en_i: in std_logic;
-             bit_130_o: out bit130
+             bit130_o: out bit130
    );
 end component;
 
@@ -35,7 +35,7 @@ begin
 MULT64_PE_MAP:  multiplexer_pe port map (bit130_i => bit130_i_s,
                                          bit128_i => bit128_i_s, 
                                              en_i => en_i_s,
-					                     bit_130_o => bit130_o_s);
+					                     bit130_o => bit130_o_s);
 
 
 

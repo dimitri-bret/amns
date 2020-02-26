@@ -24,10 +24,10 @@ echo "compile vhdl libs"
 vcom %PROJECTNAME%\sources\amns_definition_package.vhd -work AMNSLibrary
 
 echo "compile vhdl sources"
-::vcom -work source %PROJECTNAME%\sources\add_pe.vhd
-::vcom -work source %PROJECTNAME%\sources\mult64_pe.vhd
-::vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
-::vcom -work source %PROJECTNAME%\sources\multiplexer_pe.vhd
+vcom -work source %PROJECTNAME%\sources\add_pe.vhd
+vcom -work source %PROJECTNAME%\sources\mult64_pe.vhd
+vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
+vcom -work source %PROJECTNAME%\sources\multiplexer_pe.vhd
 vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 
 
@@ -35,10 +35,10 @@ vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 
 
 echo "compile vhdl test bench"
-::vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd    
-::vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd 
-::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd    
+vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd 
+vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
 
 

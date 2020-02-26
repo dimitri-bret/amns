@@ -8,29 +8,72 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Dimitri/Documents/amns
-Emodulo_pe
-Z1 w1582723995
+Eadd_pe
+Z1 w1582720992
 Z2 DPx11 amnslibrary 23 amns_definition_package 0 22 HYn[P:bhR3QggZHC3TS4F2
 Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z6 8C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd
-Z7 FC:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd
+Z6 8C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd
+Z7 FC:\Users\Dimitri\Documents\amns\sources\add_pe.vhd
+l0
+L10
+V]CJakbF=67>ZI[jAMLH]z2
+!s100 iOjJYJ_ak>=@aHjC;fHz22
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1582726482
+!i10b 1
+Z10 !s108 1582726482.000000
+Z11 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd|
+Z12 !s107 C:\Users\Dimitri\Documents\amns\sources\add_pe.vhd|
+!i113 1
+Z13 o-work source -O0
+Z14 tExplicit 1
+Aadd_pe_arch
+R2
+R3
+R4
+R5
+DEx4 work 6 add_pe 0 22 ]CJakbF=67>ZI[jAMLH]z2
+l21
+L19
+VBhLNaL99jLi7im9G<NoeP2
+!s100 bE[aGo?ld6KH6ZOWMBaUO3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Emodulo_pe
+Z15 w1582723995
+R2
+R3
+R4
+R5
+R0
+Z16 8C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd
+Z17 FC:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd
 l0
 L10
 V7g]B24?eMiCDGaQFTAU6<3
 !s100 l4G`4@WZ4UjhMFR5zZMCK1
-Z8 OP;C;10.4a;61
+R8
 32
-Z9 !s110 1582724165
+Z18 !s110 1582726483
 !i10b 1
-Z10 !s108 1582724165.000000
-Z11 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd|
-Z12 !s107 C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd|
+Z19 !s108 1582726483.000000
+Z20 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd|
+Z21 !s107 C:\Users\Dimitri\Documents\amns\sources\modulo_pe.vhd|
 !i113 1
-Z13 o-work source -O0
-Z14 tExplicit 1
+R13
+R14
 Amodulo_pe_arch
 R2
 R3
@@ -43,11 +86,140 @@ V2K[:@ogm5XN<cLD3<Gl7H2
 !s100 mceEnklXj8S`2BR7:OH1W2
 R8
 32
-R9
+R18
 !i10b 1
-R10
-R11
-R12
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Emult128_2_pe
+R1
+R2
+R3
+R4
+R5
+R0
+Z22 8C:\Users\Dimitri\Documents\amns\sources\mult128_2_pe.vhd
+Z23 FC:\Users\Dimitri\Documents\amns\sources\mult128_2_pe.vhd
+l0
+L10
+VJB;?WCl<bWaCOWN]ZF;9e3
+!s100 dlOXBhbULE;B6hZIzHb]e2
+R8
+32
+R18
+!i10b 1
+R19
+Z24 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\mult128_2_pe.vhd|
+Z25 !s107 C:\Users\Dimitri\Documents\amns\sources\mult128_2_pe.vhd|
+!i113 1
+R13
+R14
+Amult128_2_pe_arch
+R2
+R3
+R4
+R5
+DEx4 work 12 mult128_2_pe 0 22 JB;?WCl<bWaCOWN]ZF;9e3
+l22
+L19
+V=OHdFM<hAOGDlPg<h]`342
+!s100 eE6TI=6aVe^KYCVV>NV;P2
+R8
+32
+R18
+!i10b 1
+R19
+R24
+R25
+!i113 1
+R13
+R14
+Emult64_pe
+R1
+R2
+R3
+R4
+R5
+R0
+Z26 8C:\Users\Dimitri\Documents\amns\sources\mult64_pe.vhd
+Z27 FC:\Users\Dimitri\Documents\amns\sources\mult64_pe.vhd
+l0
+L10
+VDChRh7J411VO62e1]MWld2
+!s100 ?iKIVH;Rj:<BYMSITBT`52
+R8
+32
+R18
+!i10b 1
+R19
+Z28 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\mult64_pe.vhd|
+Z29 !s107 C:\Users\Dimitri\Documents\amns\sources\mult64_pe.vhd|
+!i113 1
+R13
+R14
+Amult64_pe_arch
+R2
+R3
+R4
+R5
+DEx4 work 9 mult64_pe 0 22 DChRh7J411VO62e1]MWld2
+l22
+L19
+V2dHR[9hK_kl07bk^kZVlz2
+!s100 kozl1UFQUEJaeS@QhXMnS0
+R8
+32
+R18
+!i10b 1
+R19
+R28
+R29
+!i113 1
+R13
+R14
+Emultiplexer_pe
+R1
+R2
+R3
+R4
+R5
+R0
+Z30 8C:\Users\Dimitri\Documents\amns\sources\multiplexer_pe.vhd
+Z31 FC:\Users\Dimitri\Documents\amns\sources\multiplexer_pe.vhd
+l0
+L10
+VO;S7Z6I[RUVMoE`MEzKEC0
+!s100 SbR>]3DN4?n8Z7E?UJGn[1
+R8
+32
+R18
+!i10b 1
+R19
+Z32 !s90 -work|source|C:\Users\Dimitri\Documents\amns\sources\multiplexer_pe.vhd|
+Z33 !s107 C:\Users\Dimitri\Documents\amns\sources\multiplexer_pe.vhd|
+!i113 1
+R13
+R14
+Amultiplexer_pe_arch
+R2
+R3
+R4
+R5
+DEx4 work 14 multiplexer_pe 0 22 O;S7Z6I[RUVMoE`MEzKEC0
+l22
+L20
+V0V:7;:68i6FfKAe?Ke5@W0
+!s100 e<AWgHVKd66D3mV]ZYi1n3
+R8
+32
+R18
+!i10b 1
+R19
+R32
+R33
 !i113 1
 R13
 R14
