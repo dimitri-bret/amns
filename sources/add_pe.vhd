@@ -18,12 +18,7 @@ end entity add_pe;
 
 architecture add_pe_arch of add_pe is
 
-	signal bit129_internal_s: bit129;
-	signal bit132_internal_s : bit132;
-
 	begin
-		bit129_internal_s <= std_logic_vector(unsigned(bit129_i) + unsigned(bit129_i));	
-		bit132_internal_s <=   STD_LOGIC_VECTOR(RESIZE(UNSIGNED(bit129_internal_s), 132));-- pading with zeros the uper bits
+		bit132_o <= std_logic_vector(unsigned(bit132_i) + unsigned(bit129_i));	
 
-		bit132_o <= bit132_internal_s;
 end architecture add_pe_arch;
