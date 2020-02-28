@@ -30,6 +30,8 @@ vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
 vcom -work source %PROJECTNAME%\sources\multiplexer_pe.vhd
 vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 vcom -work source %PROJECTNAME%\sources\pe.vhd
+vcom -work source %PROJECTNAME%\sources\cyclic_register.vhd
+
 
 
 
