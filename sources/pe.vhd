@@ -34,8 +34,8 @@ architecture pe_arch of pe is
                                                                    bit128_o => ai_bi_s);
 
         MULT128_2_PE: entity work.mult128_2_pe(mult128_2_pe_arch) port map(bit128_i => ai_bi_s,
-                                            bit2_i   => lambda_i,
-                                            bit130_o => lamba_ai_bi_s);
+                                                                           bit2_i   => lambda_i,
+                                                                           bit130_o => lamba_ai_bi_s);
                                   
         MULTIPLEXER_PE: entity work.multiplexer_pe(multiplexer_pe_arch) port map(bit130_i => lamba_ai_bi_s,
                                                                                  bit128_i => ai_bi_s,
