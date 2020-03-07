@@ -42,6 +42,9 @@ echo "compile vhdl test bench"
 ::vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd 
 ::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
+
+
 
 
 
