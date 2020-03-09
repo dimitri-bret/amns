@@ -1,6 +1,6 @@
 -- @Author Dimitri Bret
 -- @Author Clement Dargein
--- @description compteur test bench function for the AES algorithm 
+-- @description compteur test bench function for the AES algorithm
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -15,7 +15,7 @@ end entity  pe_tb;
 
 architecture pe_tb_arch of pe_tb is
 
-component pe is 
+component pe is
 			port ( a_i: in bit64;
                    b_i: in bit64;
               lambda_i: in bit2;
@@ -30,6 +30,7 @@ signal b_s: bit64 := "1010101010101010101010101010101010101010101010101010101010
 signal lambda_s: bit2 := "10";
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
+signal s_i_s: bit132 := std_logic_vector(to_unsigned(1234567, 132));
 signal s_o_s: bit132;
 
 begin
