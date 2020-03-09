@@ -1,2 +1,5 @@
 build.bat
+
 lib/**
+transcript
+vsim.wlf

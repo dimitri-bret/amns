@@ -30,11 +30,13 @@ signal b_s: bit64 := "1010101010101010101010101010101010101010101010101010101010
 signal lambda_s: bit2 := "10";
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
+signal s_i_s: bit132 := "101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101001"; 
+                         --3629678580490010276942662479272194255529 in decimal
 signal s_o_s: bit132;
 
 begin
 en0_s <= '1' after 100 ns;
-en1_s <= '1' after 50 ns, '0' after 100 ns;
+en1_s <= '1' after 50 ns, '0' after 100 ns, '1' after 150 ns;
 
 PE_MAP: pe port map (a_i => a_s,
                      b_i => b_s,
