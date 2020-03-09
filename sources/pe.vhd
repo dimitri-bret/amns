@@ -12,10 +12,10 @@ entity pe is
         a_i: in bit64;
         b_i: in bit64;
         lambda_i: in bit2;
-        s_i: bit132;
+        s_i: in bit132;
         en0_i: in std_logic;
         en1_i: in std_logic;
-        s_o: out bit132);
+        p_o: out bit132);
 end entity pe;
 
 
@@ -26,7 +26,7 @@ architecture pe_arch of pe is
 
     signal added_to_s_i_s: bit130;
     signal addition_result_s: bit132;
-    
+
 
     begin
         MULT64_PE: entity work.mult64_pe(mult64_pe_arch) port map(bit64_a_i => a_i,
@@ -36,7 +36,7 @@ architecture pe_arch of pe is
         MULT128_2_PE: entity work.mult128_2_pe(mult128_2_pe_arch) port map(bit128_i => ai_bi_s,
                                                                            bit2_i   => lambda_i,
                                                                            bit130_o => lamba_ai_bi_s);
-                                  
+
         MULTIPLEXER_PE: entity work.multiplexer_pe(multiplexer_pe_arch) port map(bit130_i => lamba_ai_bi_s,
                                                                                  bit128_i => ai_bi_s,
                                                                                      en_i => en0_i,
@@ -46,7 +46,7 @@ architecture pe_arch of pe is
                                                             bit132_i => s_i,
                                                             bit132_o => addition_result_s);     --   result = s_i + ai_bi or result = s_i + ai_bi*lambda
 
-        MODULO_PE_MAP:entity work.modulo_pe(modulo_pe_arch) port map( bit132_i => addition_result_s,  -- s_o = result MOD(2^64)
+        MODULO_PE_MAP:entity work.modulo_pe(modulo_pe_arch) port map( bit132_i => addition_result_s,  -- p_o = result MOD(2^64)
                                                                            en_i => en1_i,
-                                                                       bit132_o => s_o);
+                                                                       bit132_o => p_o);
 end architecture pe_arch;

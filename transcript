@@ -1,4 +1,4 @@
-vsim bench.multiplexer_pe_tb
+vsim source.single_register
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,19 +18,21 @@ vsim bench.multiplexer_pe_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 15:16:14 on Feb 26,2020
+# Start time: 13:50:14 on Mar 09,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.multiplexer_pe_tb(multiplexer_pe_tb_arch)
-# Loading source.multiplexer_pe(multiplexer_pe_arch)
-add wave -position insertpoint  \
-sim:/multiplexer_pe_tb/bit130_i_s \
-sim:/multiplexer_pe_tb/bit128_i_s \
-sim:/multiplexer_pe_tb/bit130_o_s \
-sim:/multiplexer_pe_tb/en_i_s
-run
-# End time: 15:16:51 on Feb 26,2020, Elapsed time: 0:00:37
+# Loading source.single_register(single_register_arch)
+vsim source.single_register
+# vsim 
+# Start time: 13:50:21 on Mar 09,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading amnslibrary.amns_definition_package
+# Loading source.single_register(single_register_arch)
+# End time: 13:50:26 on Mar 09,2020, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 0
