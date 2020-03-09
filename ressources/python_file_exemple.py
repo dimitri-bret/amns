@@ -12,7 +12,7 @@ from time import sleep
 import sys
 
 #example base AMNS
-#Le modulo p est : 
+#Le modulo p est : #383 digit
 p=19001325514169087268406693340194127777457227427109835115440089655205287947805423172915761409766796895644242980498091
 n=7
 #☺Gamma vaut 
@@ -87,12 +87,12 @@ def red_Mod_phi(A,phi):#ok
         
 
    
-def mul_Poly(A,B,n,l):#ok  l is lambda
+def mul_Poly(A,B,n,l):#ok
     temp=[0]*n**2
     Q=[0]*n
     for i in range(n):
         for j in range(n):
-            temp[i*n+j]=(A[i]*B[j])#comput partial product ## max is n^2 +n ? 
+            temp[i*n+j]=(A[i]*B[j])#comput partial product 
             if (i+j)<n:
                Q[i+j]=Q[i+j]+temp[i*n+j]
             else :
@@ -146,15 +146,41 @@ def AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp):#ok
     return S
 
 
+
+allPositiveCoef = False
+
+foundAfter = 0
+
+while(allPositiveCoef == False):
+    foundAfter +=1
+    a=(randint(0, p-1))
+    b=(randint(0, p-1))
+    c=a*b%p
+    
+    allPositiveCoef = True
+    A=to_AMNS(a,p,n,gm,r,l,phi,delta,m,mp)
+    B=to_AMNS(b,p,n,gm,r,l,phi,delta,m,mp)
+
+    for a in A:
+        if(a<0):
+            allPositiveCoef = False;
+    for b in B:
+        if(b<0):
+            allPositiveCoef = False;
+
+
 a=(randint(0, p-1))
 b=(randint(0, p-1))
 c=a*b%p
-A=to_AMNS(a,p,n,gm,r,l,phi,delta,m,mp)
-B=to_AMNS(b,p,n,gm,r,l,phi,delta,m,mp)
+
+
 C=AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp)
 c1=to_Binary(C,p,n,gm,r,l,phi,delta,m,mp)
+
+
+print("Final Seed a:{}\nb:{}//\nc:{}\n found after {} iterations".format(a,b,c,foundAfter))
+print("Poynomial multiplication inside AMNS")
+print ("Converted seed A: {} \nB: {}".format(A,B))
 print("Vérif mul : "+str((c-c1)%p==0))
 
-print("Poynomial multiplication inside AMNS")
-print ("A: {} \nB: {}".format(A,B))
-AB = mul_Poly(A,B,11,2)
+

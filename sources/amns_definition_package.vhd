@@ -17,5 +17,11 @@ package amns_definition_package is
 	subtype bit130 is std_logic_vector(129 downto 0);						  						  						  						  
 	subtype bit132 is std_logic_vector(131 downto 0);
 
+	type polynomial is array(0 to 6) of bit128;
+
+	-- polynomial used for testing purpose, these polynomial are genererated by the python script in the ressources folder
+	constant A_POLYNOMIAL : polynomial := (5091930861202636, 1217142518816209, 7184050027866706, 21419353384672347, 29235643963879093, 15509934832078867, 9908593040533934);
+	constant B_POLYNOMIAL: polynomial := (8061402509918760, 24915735230335350, 2307460268887778, 10320379778704402, 21468013475865192, 19910571261989853, 3758084057749864);
+		
 end package amns_definition_package;
 
