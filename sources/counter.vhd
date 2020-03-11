@@ -22,19 +22,26 @@ end entity counter;
 architecture counter_arch of counter is
 
 signal count_s : integer range 0 to degree;
+signal security_s : std_logic := '0';
 
 begin
 
 	seq_0 : process(clock_i, resetb_i, enable_i)
 		begin
-		if resetb_i'event and resetb_i = '1' then	-- reset actif à l'état haut
-			count_s <= 0;
-		elsif clock_i'event and clock_i = '1' then
-			if enable_i = '1' and count_s < degree then
+		if clock_i'event and clock_i = '1' then
+			if resetb_i = '1' then	-- reset actif à l'état haut
+				count_s <= 0;
+			elsif enable_i = '1' and count_s < degree and security_s = '1' then
 				count_s <= count_s+1;
 			else
 				count_s <= count_s;
 			end if;
+		elsif clock_i'event and clock_i = '0' then
+			if enable_i = '1' then
+				security_s <= '1';
+			else
+				security_s <= '0';
+		end if;
 		else
 			count_s <= count_s;
 		end if;
