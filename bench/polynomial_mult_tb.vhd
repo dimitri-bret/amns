@@ -16,14 +16,12 @@ end entity  polynomial_mut_tb;
 architecture polynomial_mut_tb_arch of polynomial_mut_tb is
 
     component polynomial_mut is
-        port (
-         polynomial_a_i: in polynomial;
-         polynomial_b_i: in polynomial;
-                  clk_i: in std_logic;
-               resetb_i:in std_logic;
-               enable_i: in std_logic;
-               result_o: in polynomial
-    );
+        port ( polynomial_a_i: in polynomial;
+               polynomial_b_i: in polynomial;
+                        clk_i: in std_logic;
+                     resetb_i: in std_logic;
+                     enable_i: in std_logic;
+                     result_o: in polynomial);
     end component;
 
 signal polynomial_a_i_s: polynomial;
@@ -34,7 +32,7 @@ signal enable_i_s: std_logic;
 signal result_o_s: polynomial;
 
 begin
-    clk_i_s <= '0' affter 0 ns, not clk_i_s after 50 ns;
+    clk_i_s <= '0' after 0 ns, not clk_i_s after 50 ns;
 
 MULTIPLEXER_PE_MAP:  polynomial_mut port map (polynomial_a_i_s,
                                               polynomial_b_i_s,

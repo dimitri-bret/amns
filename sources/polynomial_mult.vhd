@@ -35,29 +35,44 @@ architecture polynomial_mutlt_arch of polynomial_mut is
             s_o: out bit132);
     end component;
 
-  signal tempo_result_s: internal_polynomial_mult;
+    component lambda_lookup is
+      port (count_i: in Integer;
+              clk_i: in std_logic;
+           resetb_i: in std_logic;
+           enable_i: in std_logic;
+           enable_o: out std_logic_vector(0 to degree-1)); -- n = 7.
+  end component;
 
+  signal tempo_result_s: internal_polynomial_mult;
+  signal count_s: integer;
+  signal enable0_table_s: std_logic_vector(0 to degree -1);
 
 begin
+   LAMBDA_LOOKUP_MAP:  lambda_lookup port map(count_s,         -- count_i
+                                                clk_i,         -- clk_i
+                                             resetb_i,         -- resetb_i
+                                             enable_i,         -- enable_i
+                                             enable0_table_s); -- enable_o
+
+
     COMBINED_GEN: for I in 0 to 5 generate
                   COMBINED_MAP : combined port map (polynomial_a_i(I),        -- a_i
                                                     polynomial_b_i(I),        -- b_i
                                                     lambda,                   -- lambda_i
                                                     tempo_result_s(I+1),      -- s_i
-                                                    '0',                        -- en0_i
-                                                    '0',                        -- en1_i
-                                                    resetb_i,                  -- reset_i
+                                                    enable0_table_s(I),       -- en0_i
+                                                    '0',                      -- en1_i
+                                                    resetb_i,                 -- reset_i
                                                     clk_i,                    -- clk_i
                                                     enable_i,                 -- enable_i
-                                                    tempo_result_s(I));       -- s_0
-                                                   
+                                                    tempo_result_s(I));       -- s_0                             
 					end generate;
 
     COMBINED_6_MAP: combined port map(polynomial_a_i(6),
                                       polynomial_b_i(6),
                                       lambda,
                                       tempo_result_s(0),
-                                      '0',
+                                      enable0_table_s(6)
                                       '0',
                                       resetb_i,
                                       clk_i,

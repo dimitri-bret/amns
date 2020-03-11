@@ -3,3 +3,4 @@ build.bat
 lib/**
 transcript
 vsim.wlf
+modelsim.ini
