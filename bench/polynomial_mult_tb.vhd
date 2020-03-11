@@ -10,38 +10,43 @@ use AMNSLibrary.amns_definition_package.all;
 library source;
 use source.all;
 
-entity polynomial_mut_tb is
-end entity  polynomial_mut_tb;
+entity polynomial_mult_tb is
+end entity  polynomial_mult_tb;
 
-architecture polynomial_mut_tb_arch of polynomial_mut_tb is
+architecture polynomial_mult_tb_arch of polynomial_mult_tb is
 
-    component polynomial_mut is
-        port ( polynomial_a_i: in polynomial;
-               polynomial_b_i: in polynomial;
+    component polynomial_mult is
+        port ( polynomial_a_i: in input_polynomial;
+               polynomial_b_i: in input_polynomial;
                         clk_i: in std_logic;
                      resetb_i: in std_logic;
                      enable_i: in std_logic;
-                     result_o: in polynomial);
+                     result_o: out polynomial;
+                     s_o1_debug: out bit132);
     end component;
 
-signal polynomial_a_i_s: polynomial;
-signal polynomial_b_i_s: polynomial;
+signal polynomial_a_i_s: input_polynomial:= A_POLYNOMIAL;
+signal polynomial_b_i_s: input_polynomial:= B_POLYNOMIAL;
 signal clk_i_s: std_logic :='0';
 signal resetb_i_s: std_logic := '0';
 signal enable_i_s: std_logic:='0';
 signal result_o_s: polynomial;
 
+signal s_o1_debug_s: bit132;
+
+
 begin
     clk_i_s <= not clk_i_s after 50 ns;
     enable_i_s <= '1' after 10 ns;
 
-MULTIPLEXER_PE_MAP:  polynomial_mut port map (polynomial_a_i_s,
-                                              polynomial_b_i_s,
-                                              clk_i_s,
-                                              resetb_i_s,
-                                              clk_i_s,
-                                              result_o_s);
-end polynomial_mut_tb_arch;
+POLYNOMIAL_PE_MAP: polynomial_mult port map (polynomial_a_i_s,
+                                             polynomial_b_i_s,
+                                             clk_i_s,
+                                             resetb_i_s,
+                                             clk_i_s,
+                                             result_o_s,
+                                             s_o1_debug_s);
+end polynomial_mult_tb_arch;
 
 
 

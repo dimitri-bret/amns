@@ -7,19 +7,19 @@ use ieee.numeric_std.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
-entity polynomial_mut is
-	port (
-     polynomial_a_i: in polynomial;
-     polynomial_b_i: in polynomial;
-    clk_i: in std_logic;
-   resetb_i:in std_logic;
-   enable_i: in std_logic;
-result_o: in polynomial
+entity polynomial_mult is
+	port (polynomial_a_i: in input_polynomial;
+         polynomial_b_i: in input_polynomial;
+         clk_i: in std_logic;
+         resetb_i: in std_logic;
+         enable_i: in std_logic;
+         result_o: out polynomial;
+         s_o1_debug: out bit132
 );
-end entity polynomial_mut;
+end entity polynomial_mult;
 
 
-architecture polynomial_mutlt_arch of polynomial_mut is
+architecture polynomial_mult_arch of polynomial_mult is
 
     component combined is
         port (
@@ -43,7 +43,7 @@ architecture polynomial_mutlt_arch of polynomial_mut is
            enable_o: out std_logic_vector(0 to degree-1)); -- n = 7.
   end component;
 
-  signal tempo_result_s: internal_polynomial_mult;
+  signal tempo_result_s: polynomial;
   signal count_s: integer;
   signal enable0_table_s: std_logic_vector(0 to degree -1);
 
@@ -79,6 +79,9 @@ begin
                                       enable_i, 
                                       tempo_result_s(6));
 
-end architecture polynomial_mutlt_arch;
+      s_o1_debug <= 132D"32"; 
+      result_o <= tempo_result_s;
+
+end architecture polynomial_mult_arch;
 
 
