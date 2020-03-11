@@ -9,7 +9,7 @@ use AMNSLibrary.amns_definition_package.all;
 
 entity lambda_lookup is
 	port (
-        count_i: in Integer;
+        count_i: in integer;
         clk_i: in std_logic;
         resetb_i: in std_logic;
 				enable_i: in std_logic;

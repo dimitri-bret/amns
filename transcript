@@ -1,4 +1,4 @@
-vsim bench.lambda_lookup_tb
+vsim bench.counter_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,20 +18,19 @@ vsim bench.lambda_lookup_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 11:41:59 on Mar 10,2020
+# Start time: 08:55:49 on Mar 11,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.lambda_lookup_tb(lambda_lookup_tb_arch)
-# Loading source.lambda_lookup(lambda_lookup_arch)
+# Loading bench.counter_tb(counter_tb_arch)
+# Loading source.counter(counter_arch)
 add wave -position insertpoint  \
-sim:/lambda_lookup_tb/count_s \
-sim:/lambda_lookup_tb/resetb_s \
-sim:/lambda_lookup_tb/clk_s \
-sim:/lambda_lookup_tb/enable_i_s \
-sim:/lambda_lookup_tb/enable_o_s
+sim:/counter_tb/clock_s \
+sim:/counter_tb/resetb_s \
+sim:/counter_tb/enable_s \
+sim:/counter_tb/count_s
 run
-# End time: 11:43:16 on Mar 10,2020, Elapsed time: 0:01:17
+# End time: 09:05:06 on Mar 11,2020, Elapsed time: 0:09:17
 # Errors: 0, Warnings: 0
