@@ -49,5 +49,4 @@ echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\counter_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
-vcom -work bench %PROJECTNAME%\bench\polynomial_mult_debug.vhd
 

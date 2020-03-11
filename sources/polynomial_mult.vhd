@@ -13,7 +13,8 @@ entity polynomial_mult is
          clk_i: in std_logic;
          resetb_i: in std_logic;
          enable_i: in std_logic;
-         result_o: out polynomial
+         result_o: out polynomial;
+         enable0_table_debug: out std_logic_vector(0 to degree -1) 
          );
 end entity polynomial_mult;
 
@@ -56,7 +57,7 @@ end component;
   signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
   
 begin
-   enable_register_s <= '1' when count_s <7 else '0';
+   enable_register_s <= '0' when count_s <7 else '1';
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
 			                        resetb_i, -- resetb_i
 			                        enable_i, -- enable_i
@@ -94,6 +95,8 @@ begin
                                       tempo_result_s(6));
 
       result_o <= tempo_result_s;
+
+      enable0_table_debug <= enable0_table_s;
 end architecture polynomial_mult_arch;
 
 
