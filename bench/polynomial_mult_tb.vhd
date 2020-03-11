@@ -26,13 +26,14 @@ architecture polynomial_mut_tb_arch of polynomial_mut_tb is
 
 signal polynomial_a_i_s: polynomial;
 signal polynomial_b_i_s: polynomial;
-signal clk_i_s: std_logic;
-signal resetb_i_s: std_logic;
-signal enable_i_s: std_logic;
+signal clk_i_s: std_logic :='0';
+signal resetb_i_s: std_logic := '0';
+signal enable_i_s: std_logic:='0';
 signal result_o_s: polynomial;
 
 begin
-    clk_i_s <= '0' after 0 ns, not clk_i_s after 50 ns;
+    clk_i_s <= not clk_i_s after 50 ns;
+    enable_i_s <= '1' after 10 ns;
 
 MULTIPLEXER_PE_MAP:  polynomial_mut port map (polynomial_a_i_s,
                                               polynomial_b_i_s,

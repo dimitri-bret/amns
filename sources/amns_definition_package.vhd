@@ -7,6 +7,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use ieee.numeric_std.all;
 
 package amns_definition_package is
 
@@ -22,12 +23,34 @@ package amns_definition_package is
 	type polynomial is array(0 to 6) of bit64;
 	type internal_polynomial_mult is array (0 to 6) of bit132;
 
+	 std_logic_vector(to_unsigned(32919586486794702, 132)),
+	 std_logic_vector(to_unsigned(27245746951696933, 132)),
+	 std_logic_vector(to_unsigned(10784571421677080, 132)),
+	 std_logic_vector(to_unsigned(15172096210922416, 132)),
+	 std_logic_vector(to_unsigned(2035833437045692, 132)),
+	 std_logic_vector(to_unsigned(10564212859445114, 132)),
+	 std_logic_vector(to_unsigned(11879294980848988, 132)),
+
 
 
 	-- polynomial used for testing purpose, these polynomial are genererated by the python script in the ressources folder
-	-- constant A_POLYNOMIAL : polynomial := (5091930861202636, 1217142518816209, 7184050027866706, 21419353384672347, 29235643963879093, 15509934832078867, 9908593040533934);
-	-- constant B_POLYNOMIAL: polynomial := (8061402509918760, 24915735230335350, 2307460268887778, 10320379778704402, 21468013475865192, 19910571261989853, 3758084057749864);
+	 constant A_POLYNOMIAL : polynomial := (std_logic_vector(to_unsigned(36026640407847848, 132)), 	 
+	 										std_logic_vector(to_unsigned(26085403530407038, 132)),
+	 										std_logic_vector(to_unsigned(26393009965975788, 132)),
+	 										std_logic_vector(to_unsigned(8628319145113130, 132)),
+											std_logic_vector(to_unsigned(3728766775252705, 132)),
+											std_logic_vector(to_unsigned(13816485742461332, 132)),
+											std_logic_vector(to_unsigned(24271458462324705, 132)));
+	 
+		
+	constant B_POLYNOMIAL: polynomial := (std_logic_vector(to_unsigned(32919586486794702, 132)),
+										  std_logic_vector(to_unsigned(27245746951696933, 132)),
+										  std_logic_vector(to_unsigned(10784571421677080, 132)),
+										  std_logic_vector(to_unsigned(15172096210922416, 132)),
+										  std_logic_vector(to_unsigned(2035833437045692, 132)),
+										  std_logic_vector(to_unsigned(10564212859445114, 132)),
+										  std_logic_vector(to_unsigned(11879294980848988, 132)));
 	
-	constant lambda: bit2 := "10"; 
+	constant lambda: bit2 := "10";  -- lambda is equal to 2 in the given AMNS representation
 
 end package amns_definition_package;

@@ -72,7 +72,7 @@ begin
                                       polynomial_b_i(6),
                                       lambda,
                                       tempo_result_s(0),
-                                      enable0_table_s(6)
+                                      enable0_table_s(6),
                                       '0',
                                       resetb_i,
                                       clk_i,
