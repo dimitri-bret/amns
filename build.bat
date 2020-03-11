@@ -1,7 +1,7 @@
 cls
 
 :: set your project folder here
-set PROJECTNAME=C:\Users\Dimitri\Documents\amns
+set PROJECTNAME=C:\Users\ClemtD\Documents\GitHub\amns
 
 
 :: clean source and bench libs
@@ -35,6 +35,7 @@ vcom -work source %PROJECTNAME%\sources\combined.vhd
 vcom -work source %PROJECTNAME%\sources\lambda_lookup.vhd
 vcom -work source %PROJECTNAME%\sources\counter.vhd
 vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
+vcom -work source %PROJECTNAME%\sources\polynomial_add.vhd
 
 
 echo "compile test bench"
@@ -48,6 +49,6 @@ echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\combined_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\counter_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
-vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
-vcom -work bench %PROJECTNAME%\bench\polynomial_mult_debug.vhd
-
+::vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
+::vcom -work bench %PROJECTNAME%\bench\polynomial_mult_debug.vhd
+vcom -work bench %PROJECTNAME%\bench\polynomial_add_tb.vhd

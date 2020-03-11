@@ -1,4 +1,4 @@
-vsim bench.polynomial_mult_debug
+vsim bench.polynomial_add_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,54 +18,35 @@ vsim bench.polynomial_mult_debug
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 14:34:53 on Mar 11,2020
+# Start time: 15:54:58 on Mar 11,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.polynomial_mult_debug(polynomial_mult_debug_arch)
-# ** Warning: (vsim-3473) Component instance "COUNTER_MAP : counter" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /polynomial_mult_debug File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "LAMBDA_LOOKUP_MAP : lambda_lookup" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /polynomial_mult_debug File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(0) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(1) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(2) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(3) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(4) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Region: /polynomial_mult_debug/COMBINED_GEN(5) File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
-# ** Warning: (vsim-3473) Component instance "COMBINED_6_MAP : combined" is not bound.
-#    Time: 0 ns  Iteration: 0  Instance: /polynomial_mult_debug File: C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_debug.vhd
+# Loading bench.polynomial_add_tb(polynomial_add_tb_arch)
+# Loading source.polynomial_add(polynomial_add_arch)
 add wave -position insertpoint  \
-sim:/polynomial_mult_debug/polynomial_a_i \
-sim:/polynomial_mult_debug/polynomial_b_i \
-sim:/polynomial_mult_debug/clk_i \
-sim:/polynomial_mult_debug/resetb_i \
-sim:/polynomial_mult_debug/enable_i \
-sim:/polynomial_mult_debug/result_o \
-sim:/polynomial_mult_debug/tempo_result_s \
-sim:/polynomial_mult_debug/count_s \
-sim:/polynomial_mult_debug/enable0_table_s \
-sim:/polynomial_mult_debug/enable_register_s
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-# 
-#           File in use by: Dimitri  Hostname: CODING-BIKRAVE  ProcessID: 3484
-# 
-#           Attempting to use alternate WLF file "./wlft63nvh2".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-# 
-#           Using alternate file: ./wlft63nvh2
-# 
-run -continue
+sim:/polynomial_add_tb/enable_s \
+sim:/polynomial_add_tb/A_s \
+sim:/polynomial_add_tb/B_s \
+sim:/polynomial_add_tb/R_s
 run
 run
 run
 run
 run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 15:55:57 on Mar 11,2020, Elapsed time: 0:00:59
+# Errors: 0, Warnings: 0
