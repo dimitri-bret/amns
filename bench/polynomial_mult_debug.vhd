@@ -7,18 +7,10 @@ use ieee.numeric_std.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
-entity polynomial_mult is
-	port (polynomial_a_i: in input_polynomial;
-         polynomial_b_i: in input_polynomial;
-         clk_i: in std_logic;
-         resetb_i: in std_logic;
-         enable_i: in std_logic;
-         result_o: out polynomial
-         );
-end entity polynomial_mult;
+entity polynomial_mult_debug is
+end entity polynomial_mult_debug;
 
-
-architecture polynomial_mult_arch of polynomial_mult is
+architecture polynomial_mult_debug_arch of polynomial_mult_debug is
 
     component combined is
         port (
@@ -50,12 +42,29 @@ architecture polynomial_mult_arch of polynomial_mult is
 			count_o : out integer);
 end component;
 
+
+   -- **** SIMULATED INPUT FOR DEBUG**** 
+   signal polynomial_a_i: input_polynomial := A_POLYNOMIAL;
+   signal polynomial_b_i: input_polynomial := B_POLYNOMIAL;
+   signal clk_i: std_logic := '0';
+   signal resetb_i: std_logic := '0';
+   signal enable_i: std_logic := '0';
+   signal result_o: polynomial;
+   -- **** END SIMULATED INPUT FOR DEBUG**** 
+
+
   signal tempo_result_s: polynomial;
-  signal count_s: integer;
+  signal count_s: integer:= 0;
   signal enable0_table_s: std_logic_vector(0 to degree -1);
-  signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
+  signal enable_register_s: std_logic:= '0'; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
   
 begin
+
+   -- **** SIMULATED STIMULATION FOR DEBUG ****
+   clk_i <= not clk_i after 50 ns;
+   enable_i <= '1' after 10 ns;
+   -- **** END SIMULATED STIMULATION FOR DEBUG ****
+
    enable_register_s <= '1' when count_s <7 else '0';
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
 			                        resetb_i, -- resetb_i
@@ -94,6 +103,4 @@ begin
                                       tempo_result_s(6));
 
       result_o <= tempo_result_s;
-end architecture polynomial_mult_arch;
-
-
+end architecture polynomial_mult_debug_arch;
