@@ -25,7 +25,7 @@ begin
 
 	seq_0 : process(clk_i, resetb_i)
 		begin
-		if resetb_i = '0' then
+		if resetb_i = '1' then	-- /!\ le reset est effectif à l'état haut
 			s_s <= (others => 'X');
 		elsif clk_i'event and clk_i = '1' then
 			if enable_i = '0' then

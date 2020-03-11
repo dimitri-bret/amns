@@ -32,6 +32,7 @@ vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 vcom -work source %PROJECTNAME%\sources\pe.vhd
 vcom -work source %PROJECTNAME%\sources\single_register.vhd
 vcom -work source %PROJECTNAME%\sources\combined.vhd
+vcom -work source %PROJECTNAME%\sources\lambda_lookup.vhd
 vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
 
 
@@ -42,4 +43,7 @@ echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
+::vcom -work bench %PROJECTNAME%\bench\single_register_tb.vhd
+::vcom -work bench %PROJECTNAME%\bench\combined_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
