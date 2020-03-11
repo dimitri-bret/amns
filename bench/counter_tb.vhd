@@ -35,8 +35,8 @@ begin
 
 clock_s <= not(clock_s) after 50 ns;
 
-resetb_s <= '1' after 900 ns;
+resetb_s <= '1' after 900 ns, '0' after 1125 ns;
 
-enable_s <= '1' after 200 ns;
+enable_s <= '1' after 210 ns;
 
 end architecture counter_tb_arch;

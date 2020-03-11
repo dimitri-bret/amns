@@ -18,7 +18,7 @@ vsim bench.counter_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 08:55:49 on Mar 11,2020
+# Start time: 09:29:04 on Mar 11,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -32,5 +32,5 @@ sim:/counter_tb/resetb_s \
 sim:/counter_tb/enable_s \
 sim:/counter_tb/count_s
 run
-# End time: 09:05:06 on Mar 11,2020, Elapsed time: 0:09:17
+# End time: 09:30:57 on Mar 11,2020, Elapsed time: 0:01:53
 # Errors: 0, Warnings: 0
