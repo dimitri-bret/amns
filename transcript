@@ -1,4 +1,4 @@
-vsim bench.counter_tb
+vsim bench.single_register_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,19 +18,66 @@ vsim bench.counter_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 09:29:04 on Mar 11,2020
+# Start time: 14:33:38 on Mar 11,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.counter_tb(counter_tb_arch)
-# Loading source.counter(counter_arch)
+# Loading bench.single_register_tb(single_register_tb_arch)
+# Loading source.single_register(single_register_arch)
 add wave -position insertpoint  \
-sim:/counter_tb/clock_s \
-sim:/counter_tb/resetb_s \
-sim:/counter_tb/enable_s \
-sim:/counter_tb/count_s
+sim:/single_register_tb/p_i_s \
+sim:/single_register_tb/resetb_s \
+sim:/single_register_tb/clk_s \
+sim:/single_register_tb/enable_s \
+sim:/single_register_tb/s_o_s
 run
-# End time: 09:30:57 on Mar 11,2020, Elapsed time: 0:01:53
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vsim bench.combined_tb
+# vsim 
+# Start time: 14:35:26 on Mar 11,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading amnslibrary.amns_definition_package
+# Loading bench.combined_tb(combined_tb_arch)
+# Loading source.combined(combined_arch)
+# Loading source.pe(pe_arch)
+# Loading source.mult64_pe(mult64_pe_arch)
+# Loading source.mult128_2_pe(mult128_2_pe_arch)
+# Loading source.multiplexer_pe(multiplexer_pe_arch)
+# Loading source.add_pe(add_pe_arch)
+# Loading source.modulo_pe(modulo_pe_arch)
+# Loading source.single_register(single_register_arch)
+add wave -position insertpoint  \
+sim:/combined_tb/a_s \
+sim:/combined_tb/b_s \
+sim:/combined_tb/lambda_s \
+sim:/combined_tb/en0_s \
+sim:/combined_tb/en1_s \
+sim:/combined_tb/resetb_s \
+sim:/combined_tb/clk_s \
+sim:/combined_tb/enable_s \
+sim:/combined_tb/s_o_s
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 14:35:49 on Mar 11,2020, Elapsed time: 0:00:23
 # Errors: 0, Warnings: 0

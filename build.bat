@@ -43,7 +43,7 @@ echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\single_register_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\combined_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\single_register_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\combined_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\counter_tb.vhd

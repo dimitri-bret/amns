@@ -19,14 +19,14 @@ end entity single_register;
 
 architecture single_register_arch of single_register is
 
-signal s_s : bit132;
+signal s_s : bit132 := (others => '0'); --si on met en 'X' ça marchera pas dans l'entité "combined"
 
 begin
 
 	seq_0 : process(clk_i, resetb_i)
 		begin
 		if resetb_i = '1' then	-- /!\ le reset est effectif à l'état haut
-			s_s <= (others => 'X');
+			s_s <= (others => '0');	-- si on met en 'X' ça marchera pas dans l'entité "combined"
 		elsif clk_i'event and clk_i = '1' then
 			if enable_i = '0' then
 				s_s <= p_i;
