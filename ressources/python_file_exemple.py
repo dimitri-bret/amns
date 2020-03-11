@@ -169,10 +169,6 @@ while(allPositiveCoef == False):
             allPositiveCoef = False;
 
 
-a=(randint(0, p-1))
-b=(randint(0, p-1))
-c=a*b%p
-
 
 C=AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp)
 c1=to_Binary(C,p,n,gm,r,l,phi,delta,m,mp)

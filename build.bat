@@ -1,7 +1,7 @@
 cls
 
 :: set your project folder here
-set PROJECTNAME=C:\Users\ClemtD\Documents\GitHub\amns
+set PROJECTNAME=C:\Users\Dimitri\Documents\amns
 
 
 :: clean source and bench libs
@@ -32,6 +32,7 @@ vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 vcom -work source %PROJECTNAME%\sources\pe.vhd
 vcom -work source %PROJECTNAME%\sources\single_register.vhd
 vcom -work source %PROJECTNAME%\sources\combined.vhd
+vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
 
 
 echo "compile test bench"
@@ -41,3 +42,4 @@ echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
