@@ -39,11 +39,11 @@ vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
 
 echo "compile test bench"
 ::vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\multiplexer_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\modulo_pe_tb.vhd
-::vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
+vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\single_register_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\combined_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\counter_tb.vhd

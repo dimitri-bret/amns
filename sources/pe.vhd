@@ -8,14 +8,13 @@ library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
 entity pe is
-	port (
-        a_i: in bit64;
-        b_i: in bit64;
-        lambda_i: in bit2;
-        s_i: in bit132;
-        en0_i: in std_logic;
-        en1_i: in std_logic;
-        p_o: out bit132);
+	port ( a_i: in bit64;
+           b_i: in bit64;
+      lambda_i: in bit2;
+           s_i: in bit132;
+         en0_i: in std_logic;
+         en1_i: in std_logic;
+           p_o: out bit132);
 end entity pe;
 
 
@@ -26,7 +25,6 @@ architecture pe_arch of pe is
 
     signal added_to_s_i_s: bit130;
     signal addition_result_s: bit132;
-
 
     begin
         MULT64_PE: entity work.mult64_pe(mult64_pe_arch) port map(bit64_a_i => a_i,

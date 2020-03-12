@@ -88,6 +88,7 @@ def red_Mod_phi(A,phi):#ok
 
    
 def mul_Poly(A,B,n,l):#ok
+    print("parameters: n={}, lambda={}".format(n,l))
     temp=[0]*n**2
     Q=[0]*n
     for i in range(n):
@@ -97,6 +98,8 @@ def mul_Poly(A,B,n,l):#ok
                Q[i+j]=Q[i+j]+temp[i*n+j]
             else :
                 Q[(i+j)-n]=Q[(i+j)%n]+l*temp[i*n+j]#mul par lambda simplifiable selon lambda
+        print ("Q (i={}) internal: {}".format(i,Q))
+    print(temp)
     return Q
 
 
@@ -148,10 +151,9 @@ def AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp):#ok
 
 
 allPositiveCoef = False
-
 foundAfter = 0
 
-while(allPositiveCoef == False):
+while(allPositiveCoef == False and False):
     foundAfter +=1
     a=(randint(0, p-1))
     b=(randint(0, p-1))
@@ -170,20 +172,20 @@ while(allPositiveCoef == False):
 
 
 
-C=AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp)
-c1=to_Binary(C,p,n,gm,r,l,phi,delta,m,mp)
+#C=AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp)
+#c1=to_Binary(C,p,n,gm,r,l,phi,delta,m,mp)
 
 
-print("Final Seed a:{}\nb:{}//\nc:{}\n found after {} iterations".format(a,b,c,foundAfter))
-print("Poynomial multiplication inside AMNS")
-print ("Converted seed A: {} \nB: {}".format(A,B))
-print("Vérif mul : "+str((c-c1)%p==0))
+#print("Final Seed a:{}\nb:{}//\nc:{}\n found after {} iterations".format(a,b,c,foundAfter))
+#print("Poynomial multiplication inside AMNS")
+#print ("Converted seed A: {} \nB: {}".format(A,B))
+#print("Vérif mul : "+str((c-c1)%p==0))
 
 print("CHECKING MULT POLY")
 
 A1 = [36026640407847848, 26085403530407038, 26393009965975788, 8628319145113130, 3728766775252705, 13816485742461332, 24271458462324705]      
 B1 = [32919586486794702, 27245746951696933, 10784571421677080, 15172096210922416, 2035833437045692, 10564212859445114, 11879294980848988]
 
-C1=mul_Poly(A1,B1,)
-print (C)
-
+C1=mul_Poly(A1,B1,n,l)
+print ("RESULT MULT POLYNOMIAL{}".format(C1))
+print(hex(C1[0]))
