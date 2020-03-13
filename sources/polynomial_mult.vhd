@@ -45,8 +45,8 @@ architecture polynomial_mult_arch of polynomial_mult is
 
   component fsm_polynomial_mult is
       port (count_i: in integer;
-                s_i: in polynomial;
-                s_o: out polynomial);
+                s_i: in input_polynomial;
+                s_o: out input_polynomial);
 end component ;
 
   component counter is
@@ -57,10 +57,10 @@ end component ;
 end component;
 
   signal tempo_result_s: polynomial;
-  signal count_s: integer;
+  signal count_s: integer := '0';
   signal enable0_table_s: std_logic_vector(0 to degree -1);
   signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
-  signal polynomial_b_s: polynomial;
+  signal polynomial_b_s: input_polynomial;
 
 
 begin
@@ -76,9 +76,9 @@ begin
                                              enable_i,         -- enable_i
                                              enable0_table_s); -- enable_o
 
-   FSM_POLYNOMIAL_MULT_MAP fsm_polynomial_mult port map(count_s,
-                                                        polynomial_b_i,
-                                                        polynomial_b_s);
+   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map(count_s,       -- count_i
+                                                        polynomial_b_i, -- s_i
+                                                        polynomial_b_s);-- s_o
 
 
     COMBINED_GEN: for I in 0 to 5 generate

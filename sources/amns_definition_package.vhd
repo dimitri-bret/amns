@@ -12,6 +12,8 @@ use ieee.numeric_std.all;
 package amns_definition_package is
 
 	constant degree : integer := 7;
+	constant degree_minus_one: integer := degree -1;
+
 	subtype bit2 is std_logic_vector(1 downto 0);
 	subtype bit64 is std_logic_vector(63 downto 0);
 	subtype bit128 is std_logic_vector(127 downto 0);

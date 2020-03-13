@@ -166,10 +166,10 @@ while(allPositiveCoef == False and False):
 
     for a in A:
         if(a<0):
-            allPositiveCoef = False;
+            allPositiveCoef = False
     for b in B:
         if(b<0):
-            allPositiveCoef = False;
+            allPositiveCoef = False
 
 
 

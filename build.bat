@@ -3,6 +3,9 @@ cls
 :: set your project folder here
 set PROJECTNAME=C:\Users\Dimitri\Documents\amns
 
+:: Current working directory
+::set PROJECTNAME = %cd%
+
 
 :: clean source and bench libs
 echo "removing libs"
@@ -35,6 +38,7 @@ vcom -work source %PROJECTNAME%\sources\single_register.vhd
 vcom -work source %PROJECTNAME%\sources\combined.vhd
 vcom -work source %PROJECTNAME%\sources\lambda_lookup.vhd
 vcom -work source %PROJECTNAME%\sources\counter.vhd
+vcom -work source %PROJECTNAME%\sources\fsm_polynomial_mult.vhd
 vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
 
 
