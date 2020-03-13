@@ -30,6 +30,7 @@ vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
 vcom -work source %PROJECTNAME%\sources\multiplexer_pe.vhd
 vcom -work source %PROJECTNAME%\sources\modulo_pe.vhd
 vcom -work source %PROJECTNAME%\sources\pe.vhd
+vcom -work source %PROJECTNAME%\sources\fsm_polynomial_mult.vhd
 vcom -work source %PROJECTNAME%\sources\single_register.vhd
 vcom -work source %PROJECTNAME%\sources\combined.vhd
 vcom -work source %PROJECTNAME%\sources\lambda_lookup.vhd

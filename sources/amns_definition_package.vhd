@@ -18,10 +18,9 @@ package amns_definition_package is
 	subtype bit129 is std_logic_vector(128 downto 0);
 	subtype bit130 is std_logic_vector(129 downto 0);
 	subtype bit132 is std_logic_vector(131 downto 0);
-	type matrix is array (0 to degree) of std_logic_vector(0 to degree-1);
 
-	type input_polynomial is array(0 to 6) of bit64;
-	type polynomial is array (0 to 6) of bit132;
+	type input_polynomial is array(0 to degree -1) of bit64;
+	type polynomial is array (0 to degree -1) of bit132;
 
 	constant lambda: bit2 := "10";  -- lambda is equal to 2 in the given AMNS representation
 

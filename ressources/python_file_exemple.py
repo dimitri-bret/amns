@@ -9,6 +9,7 @@ Created on Tue Feb  4 08:31:41 2020
 from random import randint
 from math import ceil
 from time import sleep
+import numpy as np
 import sys
 
 #example base AMNS
@@ -98,7 +99,7 @@ def mul_Poly(A,B,n,l):#ok
                Q[i+j]=Q[i+j]+temp[i*n+j]
             else :
                 Q[(i+j)-n]=Q[(i+j)%n]+l*temp[i*n+j]#mul par lambda simplifiable selon lambda
-        print ("Q (i={}) internal: {}".format(i,Q))
+        print ("Q (i={}) internal: {}".format(i, [hex(q) for q in Q]))
     print(temp)
     return Q
 
@@ -188,4 +189,8 @@ B1 = [32919586486794702, 27245746951696933, 10784571421677080, 15172096210922416
 
 C1=mul_Poly(A1,B1,n,l)
 print ("RESULT MULT POLYNOMIAL{}".format(C1))
-print(hex(C1[0]))
+print([hex(c) for c in C1])
+C2 =AMNS_Mul(A1,B1,p,n,gm,r,l,phi,delta,m,mp)
+
+print ("RESULT MULT AMNS{}".format(C2))
+print([hex(c) for c in C2])

@@ -43,11 +43,16 @@ architecture polynomial_mult_arch of polynomial_mult is
            enable_o: out std_logic_vector(0 to degree-1)); -- n = 7.
   end component;
 
+  component fsm_polynomial_mult is
+      port (count_i: in integer;
+                s_i: in polynomial;
+                s_o: out polynomial);
+end component ;
+
   component counter is
-	port (
-			clock_i : in std_logic;
-			resetb_i : in std_logic;
-			enable_i : in std_logic;
+	port (clock_i : in std_logic;
+		  resetb_i : in std_logic;
+		  enable_i : in std_logic;
 			count_o : out integer);
 end component;
 
@@ -55,7 +60,9 @@ end component;
   signal count_s: integer;
   signal enable0_table_s: std_logic_vector(0 to degree -1);
   signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
-  
+  signal polynomial_b_s: polynomial;
+
+
 begin
    enable_register_s <= '0' when count_s <7 else '1';
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
@@ -69,10 +76,14 @@ begin
                                              enable_i,         -- enable_i
                                              enable0_table_s); -- enable_o
 
+   FSM_POLYNOMIAL_MULT_MAP fsm_polynomial_mult port map(count_s,
+                                                        polynomial_b_i,
+                                                        polynomial_b_s);
+
 
     COMBINED_GEN: for I in 0 to 5 generate
                   COMBINED_MAP : combined port map (polynomial_a_i(I),        -- a_i
-                                                    polynomial_b_i(I),        -- b_i
+                                                    polynomial_b_s(I),        -- b_i
                                                     lambda,                   -- lambda_i
                                                     tempo_result_s(I+1),      -- s_i
                                                     enable0_table_s(I),       -- en0_i
