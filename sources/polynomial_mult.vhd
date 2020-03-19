@@ -10,12 +10,13 @@ use AMNSLibrary.amns_definition_package.all;
 entity polynomial_mult is
 	port (polynomial_a_i: in input_polynomial;
          polynomial_b_i: in input_polynomial;
-         clk_i: in std_logic;
-         resetb_i: in std_logic;
-         enable_i: in std_logic;
-         result_o: out polynomial;
-         enable0_table_debug: out std_logic_vector(0 to degree -1) 
-         );
+                  clk_i: in std_logic;
+               resetb_i: in std_logic;
+               enable_i: in std_logic;
+               result_o: out polynomial;
+    enable0_table_debug: out std_logic_vector(0 to degree -1);
+    polynomial_b_debug: out bit64;
+            count_debug: out integer);
 end entity polynomial_mult;
 
 
@@ -35,19 +36,16 @@ architecture polynomial_mult_arch of polynomial_mult is
             s_o: out bit132);
     end component;
 
-    component lambda_lookup is
-      port (count_i: in Integer;
-              clk_i: in std_logic;
-           resetb_i: in std_logic;
-           enable_i: in std_logic;
-           enable_o: out std_logic_vector(0 to degree-1)); -- n = 7.
-  end component;
 
   component fsm_polynomial_mult is
-      port (count_i: in integer;
-                s_i: in input_polynomial;
-                s_o: out input_polynomial);
-end component ;
+    port (polynomial_b_i: in input_polynomial;
+                   clk_i: in std_logic;
+                   count_i: in integer;
+                resetb_i: in std_logic;
+                enable_i: in std_logic;
+                enable_o: out std_logic_vector(0 to degree -1);
+    polynomial_b_coeff_o: out bit64);
+end component;
 
   component counter is
 	port (clock_i : in std_logic;
@@ -57,33 +55,33 @@ end component ;
 end component;
 
   signal tempo_result_s: polynomial;
-  signal count_s: integer := '0';
+  signal count_s: integer := 0;
   signal enable0_table_s: std_logic_vector(0 to degree -1);
   signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
-  signal polynomial_b_s: input_polynomial;
+  signal polynomial_b_coeff_s: bit64;
 
 
 begin
    enable_register_s <= '0' when count_s <7 else '1';
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
-			                        resetb_i, -- resetb_i
-			                        enable_i, -- enable_i
-			                        count_s); -- count_o
+			                           resetb_i, -- resetb_i
+			                           enable_i, -- enable_i
+			                           count_s); -- count_o
 
-   LAMBDA_LOOKUP_MAP:  lambda_lookup port map(count_s,         -- count_i
-                                                clk_i,         -- clk_i
-                                             resetb_i,         -- resetb_i
-                                             enable_i,         -- enable_i
-                                             enable0_table_s); -- enable_o
+   
 
-   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map(count_s,       -- count_i
-                                                        polynomial_b_i, -- s_i
-                                                        polynomial_b_s);-- s_o
+   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map(polynomial_b_i,     -- count_i
+                                                        clk_i,               -- clk_i
+                                                        count_s,             -- count_s
+                                                        resetb_i,            -- resetb_i
+                                                        enable_i,            -- enable_i
+                                                        enable0_table_s,     --enable_o
+                                                        polynomial_b_coeff_s);-- s_o
 
 
-    COMBINED_GEN: for I in 0 to 5 generate
+    COMBINED_GEN: for I in 0 to degree_minus_two generate
                   COMBINED_MAP : combined port map (polynomial_a_i(I),        -- a_i
-                                                    polynomial_b_s(I),        -- b_i
+                                                    polynomial_b_coeff_s,     -- b_i
                                                     lambda,                   -- lambda_i
                                                     tempo_result_s(I+1),      -- s_i
                                                     enable0_table_s(I),       -- en0_i
@@ -94,20 +92,22 @@ begin
                                                     tempo_result_s(I));       -- s_0                             
 					end generate;
 
-    COMBINED_6_MAP: combined port map(polynomial_a_i(6),
-                                      polynomial_b_i(6),
-                                      lambda,
-                                      tempo_result_s(0),
-                                      enable0_table_s(6),
-                                      '0',
-                                      resetb_i,
-                                      clk_i,
-                                      enable_register_s, 
-                                      tempo_result_s(6));
+    COMBINED_LAST_MAP: combined port map(polynomial_a_i(degree_minus_one),
+                                         polynomial_b_coeff_s,
+                                         lambda,
+                                         tempo_result_s(0),
+                                         enable0_table_s(degree_minus_one),
+                                         '0',
+                                         resetb_i,
+                                         clk_i,
+                                         enable_register_s, 
+                                         tempo_result_s(degree_minus_one));
 
       result_o <= tempo_result_s;
 
       enable0_table_debug <= enable0_table_s;
+      count_debug <= count_s;
+      polynomial_b_debug <= polynomial_b_coeff_s;
 end architecture polynomial_mult_arch;
 
 
