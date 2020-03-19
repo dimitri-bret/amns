@@ -103,6 +103,8 @@ begin
                                          enable_register_s, 
                                          tempo_result_s(degree_minus_one));
 
+
+                                         
       result_o <= tempo_result_s;
 
       enable0_table_debug <= enable0_table_s;

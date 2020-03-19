@@ -32,7 +32,6 @@ end component;
 signal a_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
 signal b_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
 signal lambda_s: bit2 := "10";
---signal s_i_s: bit132 := (others => 'X');
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
 signal resetb_s: std_logic :='0';

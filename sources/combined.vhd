@@ -36,11 +36,11 @@ component pe
 end component;
 
 component single_register
-  port (	enable_i : in std_logic;
-      clk_i : in std_logic;
-      resetb_i : in std_logic;
-      p_i : in bit132;
-      s_o : out bit132);
+  port (enable_i : in std_logic;
+           clk_i : in std_logic;
+        resetb_i : in std_logic;
+             p_i : in bit132;
+             s_o : out bit132);
 end component;
 
 signal p_s : bit132;
