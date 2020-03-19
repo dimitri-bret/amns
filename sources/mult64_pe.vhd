@@ -20,6 +20,6 @@ architecture mult64_pe_arch of mult64_pe is
 
 
 	begin
-		bit128_o <= std_logic_vector(unsigned(bit64_a_i) * unsigned(bit64_a_i));	
+		bit128_o <= std_logic_vector(unsigned(bit64_a_i) * unsigned(bit64_b_i));	
 
 end architecture mult64_pe_arch;

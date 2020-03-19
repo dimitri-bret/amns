@@ -1,4 +1,4 @@
-vsim bench.single_register_tb
+vsim bench.combined_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,34 +18,7 @@ vsim bench.single_register_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 14:33:38 on Mar 11,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading amnslibrary.amns_definition_package
-# Loading bench.single_register_tb(single_register_tb_arch)
-# Loading source.single_register(single_register_arch)
-add wave -position insertpoint  \
-sim:/single_register_tb/p_i_s \
-sim:/single_register_tb/resetb_s \
-sim:/single_register_tb/clk_s \
-sim:/single_register_tb/enable_s \
-sim:/single_register_tb/s_o_s
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-vsim bench.combined_tb
-# vsim 
-# Start time: 14:35:26 on Mar 11,2020
+# Start time: 13:38:18 on Mar 19,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -60,6 +33,8 @@ vsim bench.combined_tb
 # Loading source.add_pe(add_pe_arch)
 # Loading source.modulo_pe(modulo_pe_arch)
 # Loading source.single_register(single_register_arch)
+run
+run
 add wave -position insertpoint  \
 sim:/combined_tb/a_s \
 sim:/combined_tb/b_s \
@@ -70,6 +45,7 @@ sim:/combined_tb/resetb_s \
 sim:/combined_tb/clk_s \
 sim:/combined_tb/enable_s \
 sim:/combined_tb/s_o_s
+restart
 run
 run
 run
@@ -78,6 +54,5 @@ run
 run
 run
 run
-run
-# End time: 14:35:49 on Mar 11,2020, Elapsed time: 0:00:23
+# End time: 13:42:31 on Mar 19,2020, Elapsed time: 0:04:13
 # Errors: 0, Warnings: 0

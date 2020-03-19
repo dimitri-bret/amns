@@ -22,20 +22,18 @@ component pe is
                    s_i: bit132;
                  en0_i: in std_logic;
                  en1_i: in std_logic;
-                   s_o: out bit132);
+                   p_o: out bit132);
 end component;
 
-signal a_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
-signal b_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
+signal a_s: bit64 := "0000000000000000000000000000000000000000000000000000000000000001"; --12297829382473034410 in decimal
+signal b_s: bit64 := "0000000000000000000000000000000000000000000000000000000000000011"; --12297829382473034410 in decimal
 signal lambda_s: bit2 := "10";
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
-signal s_i_s: bit132 := std_logic_vector(to_unsigned(1234567, 132));
+signal s_i_s: bit132 := (std_logic_vector(to_unsigned(1, 132)));
 signal s_o_s: bit132;
 
 begin
-en0_s <= '1' after 100 ns;
-en1_s <= '1' after 50 ns, '0' after 100 ns;
 
 PE_MAP: pe port map (a_i => a_s,
                      b_i => b_s,
@@ -43,5 +41,5 @@ PE_MAP: pe port map (a_i => a_s,
                    en0_i => en0_s,
                    en1_i => en1_s,
                    s_i => s_i_s,
-                   s_o => s_o_s);
+                   p_o => s_o_s);
 end pe_tb_arch;

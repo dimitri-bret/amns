@@ -31,9 +31,9 @@ signal enable_s: std_logic  :='0';
 signal s_o_s: bit132;
 
 begin
-p_i_s <= std_logic_vector(to_unsigned(1234567, 132)) after 150 ns, std_logic_vector(to_unsigned(8910111, 132)) after 600 ns;
+p_i_s <= std_logic_vector(to_unsigned(1234567, 132)) after 150 ns, std_logic_vector(to_unsigned(8910111, 132)) after 500 ns;
 clk_s <= not clk_s after 100 ns;
-enable_s <= '1' after 450 ns, '0' after 850 ns;
+enable_s <= '1' after 450 ns, '0' after 600 ns;
 resetb_s <= '1' after 950 ns;
 
 single_register_MAP: single_register port map (
