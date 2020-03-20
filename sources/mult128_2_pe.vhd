@@ -20,6 +20,6 @@ architecture mult128_2_pe_arch of mult128_2_pe is
 
 
 	begin
-		bit130_o <= std_logic_vector(unsigned(bit128_i) * unsigned(bit2_i));	
+		bit130_o <= std_logic_vector(unsigned(bit128_i) * unsigned(bit2_i));
 
 end architecture mult128_2_pe_arch;

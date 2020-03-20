@@ -79,6 +79,8 @@ vsim bench.polynomial_mult_tb
 # Loading source.add_pe(add_pe_arch)
 # Loading source.modulo_pe(modulo_pe_arch)
 # Loading source.single_register(single_register_arch)
+run
+run
 add wave -position insertpoint  \
 sim:/polynomial_mult_tb/polynomial_a_i_s \
 sim:/polynomial_mult_tb/polynomial_b_i_s \

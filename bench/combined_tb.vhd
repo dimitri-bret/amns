@@ -29,19 +29,20 @@ component combined is
         s_o: out bit132);
 end component;
 
-signal a_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
-signal b_s: bit64 := "1010101010101010101010101010101010101010101010101010101010101010"; --12297829382473034410 in decimal
+signal a_s: bit64 := "0000000000000000000000000000000000000000000000000000000000000001"; --12297829382473034410 in decimal
+signal b_s: bit64 := "0000000000000000000000000000000000000000000000000000000000000001"; --12297829382473034410 in decimal
 signal lambda_s: bit2 := "10";
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
 signal resetb_s: std_logic :='0';
-signal clk_s: std_logic :='0';
+signal clk_s: std_logic :='1';
 signal enable_s: std_logic  :='0';
 signal s_o_s: bit132;
 
 begin
 clk_s <= not clk_s after 50 ns;
 enable_s <= '1' after 950 ns;
+b_s <= "0000000000000000000000000000000000000000000000000000000000000010" after 200 ns;
 --s_i_s <= std_logic_vector(to_unsigned(2, 132)) after 100 ns, std_logic_vector(to_unsigned(3, 132)) after 200 ns, std_logic_vector(to_unsigned(4, 132)) after 300 ns;
 --resetb_s <= '1' after 950 ns;
 
