@@ -27,6 +27,7 @@ echo "compile libs"
 vcom %PROJECTNAME%\sources\amns_definition_package.vhd -work AMNSLibrary
 
 echo "compile sources"
+vcom -work source %PROJECTNAME%\sources\ram_1.vhd
 vcom -work source %PROJECTNAME%\sources\add_pe.vhd
 vcom -work source %PROJECTNAME%\sources\mult64_pe.vhd
 vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
@@ -43,6 +44,7 @@ vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
 
 
 echo "compile test bench"
+vcom -work bench %PROJECTNAME%\bench\ram_1_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd

@@ -94,3 +94,8 @@ run
 run
 run
 run
+run -all
+# Break key hit
+# Break in Architecture polynomial_mult_tb_arch at C:/Users/Dimitri/Documents/amns/bench/polynomial_mult_tb.vhd line 42
+# End time: 14:35:53 on Mar 19,2020, Elapsed time: 0:23:29
+# Errors: 0, Warnings: 0
