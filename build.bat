@@ -1,7 +1,7 @@
 cls
 
 :: set your project folder here
-set PROJECTNAME=C:\Users\Dimitri\Documents\amns
+set PROJECTNAME=C:\Users\ClemtD\Documents\GitHub\amns
 
 :: Current working directory
 ::set PROJECTNAME = %cd%
@@ -41,6 +41,7 @@ vcom -work source %PROJECTNAME%\sources\lambda_lookup.vhd
 vcom -work source %PROJECTNAME%\sources\counter.vhd
 vcom -work source %PROJECTNAME%\sources\fsm_polynomial_mult.vhd
 vcom -work source %PROJECTNAME%\sources\polynomial_mult.vhd
+vcom -work source %PROJECTNAME%\sources\polynomial_add.vhd
 
 
 echo "compile test bench"
@@ -56,4 +57,3 @@ vcom -work bench %PROJECTNAME%\bench\pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\counter_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\lambda_lookup_tb.vhd
 vcom -work bench %PROJECTNAME%\bench\polynomial_mult_tb.vhd
-
