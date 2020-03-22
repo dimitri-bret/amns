@@ -7,8 +7,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
-library source;
-use source.all;
+
 
 entity combined_tb is
 end entity  combined_tb;

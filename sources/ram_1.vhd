@@ -7,9 +7,9 @@ use AMNSLibrary.amns_definition_package.all;
 entity ram_1 is
   generic(
     w        : natural:=64; --tailles des mots;
-    e        : natural;--nb de mots
-    nbit_ram : natural;--nb de bit de l'addresse de la ram
-    ram_size : natural--taille de la ram
+    e        : natural:=64;--nb de mots
+    nbit_ram : natural:=64;--nb de bit de l'addresse de la ram
+    ram_size : natural:=64--taille de la ram
     );
 
   port(  -- pas de reset car le copro ne le contrôlera pas.

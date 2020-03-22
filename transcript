@@ -18,7 +18,105 @@ vsim bench.polynomial_mult_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 11:50:41 on Mar 22,2020
+# Start time: 16:27:51 on Mar 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading amnslibrary.amns_definition_package
+# Loading bench.polynomial_mult_tb(polynomial_mult_tb_arch)
+# Loading source.polynomial_mult(polynomial_mult_arch)
+# Loading source.counter(counter_arch)
+# Loading source.fsm_polynomial_mult(fsm_polynomial_mult_arch)
+# Loading source.lambda_lookup(lambda_lookup_arch)
+# Loading source.combined(combined_arch)
+# Loading source.pe(pe_arch)
+# Loading source.mult64_pe(mult64_pe_arch)
+# Loading source.mult128_2_pe(mult128_2_pe_arch)
+# Loading source.multiplexer_pe(multiplexer_pe_arch)
+# Loading source.add_pe(add_pe_arch)
+# Loading source.modulo_pe(modulo_pe_arch)
+# Loading source.single_register(single_register_arch)
+add wave -position insertpoint  \
+sim:/polynomial_mult_tb/polynomial_a_i_s \
+sim:/polynomial_mult_tb/polynomial_b_i_s \
+sim:/polynomial_mult_tb/clk_i_s \
+sim:/polynomial_mult_tb/resetb_i_s \
+sim:/polynomial_mult_tb/enable_i_s \
+sim:/polynomial_mult_tb/result_o_s
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Dimitri  Hostname: DESKTOP-MFHMU3D  ProcessID: 15572
+# 
+#           Attempting to use alternate WLF file "./wlftxcszt4".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftxcszt4
+# 
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Break key hit
+# Break key hit
+vsim bench.polynomial_mult_tb
+# vsim 
+# Start time: 16:30:03 on Mar 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading amnslibrary.amns_definition_package
+# Loading bench.polynomial_mult_tb(polynomial_mult_tb_arch)
+# Loading source.polynomial_mult(polynomial_mult_arch)
+# Loading source.counter(counter_arch)
+# Loading source.fsm_polynomial_mult(fsm_polynomial_mult_arch)
+# Loading source.lambda_lookup(lambda_lookup_arch)
+# Loading source.combined(combined_arch)
+# Loading source.pe(pe_arch)
+# Loading source.mult64_pe(mult64_pe_arch)
+# Loading source.mult128_2_pe(mult128_2_pe_arch)
+# Loading source.multiplexer_pe(multiplexer_pe_arch)
+# Loading source.add_pe(add_pe_arch)
+# Loading source.modulo_pe(modulo_pe_arch)
+# Loading source.single_register(single_register_arch)
+add wave -position insertpoint  \
+sim:/polynomial_mult_tb/polynomial_a_i_s \
+sim:/polynomial_mult_tb/polynomial_b_i_s \
+sim:/polynomial_mult_tb/clk_i_s \
+sim:/polynomial_mult_tb/resetb_i_s \
+sim:/polynomial_mult_tb/enable_i_s \
+sim:/polynomial_mult_tb/result_o_s
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Dimitri  Hostname: DESKTOP-MFHMU3D  ProcessID: 15572
+# 
+#           Attempting to use alternate WLF file "./wlfte3f6xa".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfte3f6xa
+# 
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vsim bench.polynomial_mult_tb
+# vsim 
+# Start time: 16:38:59 on Mar 22,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -44,9 +142,65 @@ sim:/polynomial_mult_tb/clk_i_s \
 sim:/polynomial_mult_tb/resetb_i_s \
 sim:/polynomial_mult_tb/enable_i_s \
 sim:/polynomial_mult_tb/result_o_s \
-sim:/polynomial_mult_tb/polynomial_b_debug_s \
-sim:/polynomial_mult_tb/enable0_table_debug_s \
-sim:/polynomial_mult_tb/count_debug_s
+sim:/polynomial_mult_tb/enable_mod_phi_debug_s
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Dimitri  Hostname: DESKTOP-MFHMU3D  ProcessID: 15572
+# 
+#           Attempting to use alternate WLF file "./wlft4bbdsz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft4bbdsz
+# 
+run -continue
+run -continue
+run
+run
+run
+run
+run
+run
+run
+run
+run
+vsim bench.polynomial_mult_tb
+# vsim 
+# Start time: 16:40:51 on Mar 22,2020
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading amnslibrary.amns_definition_package
+# Loading bench.polynomial_mult_tb(polynomial_mult_tb_arch)
+# Loading source.polynomial_mult(polynomial_mult_arch)
+# Loading source.counter(counter_arch)
+# Loading source.fsm_polynomial_mult(fsm_polynomial_mult_arch)
+# Loading source.lambda_lookup(lambda_lookup_arch)
+# Loading source.combined(combined_arch)
+# Loading source.pe(pe_arch)
+# Loading source.mult64_pe(mult64_pe_arch)
+# Loading source.mult128_2_pe(mult128_2_pe_arch)
+# Loading source.multiplexer_pe(multiplexer_pe_arch)
+# Loading source.add_pe(add_pe_arch)
+# Loading source.modulo_pe(modulo_pe_arch)
+# Loading source.single_register(single_register_arch)
+add wave -position insertpoint  \
+sim:/polynomial_mult_tb/polynomial_a_i_s \
+sim:/polynomial_mult_tb/polynomial_b_i_s \
+sim:/polynomial_mult_tb/clk_i_s \
+sim:/polynomial_mult_tb/resetb_i_s \
+sim:/polynomial_mult_tb/enable_i_s \
+sim:/polynomial_mult_tb/result_o_s \
+sim:/polynomial_mult_tb/enable_mod_phi_debug_s
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Dimitri  Hostname: DESKTOP-MFHMU3D  ProcessID: 15572
+# 
+#           Attempting to use alternate WLF file "./wlftghebj2".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftghebj2
+# 
 run
 run
 run
@@ -57,7 +211,5 @@ run
 run
 run
 run
-run
-run
-# End time: 11:56:33 on Mar 22,2020, Elapsed time: 0:05:52
-# Errors: 0, Warnings: 0
+# End time: 16:45:38 on Mar 22,2020, Elapsed time: 0:04:47
+# Errors: 0, Warnings: 2

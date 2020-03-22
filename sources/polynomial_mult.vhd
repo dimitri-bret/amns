@@ -13,10 +13,8 @@ entity polynomial_mult is
                   clk_i: in std_logic;
                resetb_i: in std_logic;
                enable_i: in std_logic;
-               result_o: out polynomial;
-    enable0_table_debug: out std_logic_vector(0 to degree -1);
-    polynomial_b_debug: out bit64;
-            count_debug: out integer);
+         with_mod_phi_i: in std_logic;
+               result_o: out polynomial);
 end entity polynomial_mult;
 
 
@@ -56,13 +54,18 @@ end component;
 
   signal tempo_result_s: polynomial;
   signal count_s: integer := 0;
+  
+  signal enable_mod_phi_s: std_logic;
   signal enable0_table_s: std_logic_vector(0 to degree -1);
   signal enable_register_s: std_logic; -- if enable_register_s is set at the end, all register are 'frozen', ie won't update on clock tick
   signal polynomial_b_coeff_s: bit64;
 
 
+
 begin
+
    enable_register_s <= '0' when count_s <degree_plus_one else '1'; -- signal for saving result
+   enable_mod_phi_s <= with_mod_phi_i when count_s = degree else '0';
 
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
 			                           resetb_i, -- resetb_i
@@ -85,31 +88,26 @@ begin
                                                     lambda,                   -- lambda_i
                                                     tempo_result_s(I+1),      -- s_i
                                                     enable0_table_s(I),       -- en0_i
-                                                    '0',                      -- en1_i
+                                                    enable_mod_phi_s,         -- en1_i
                                                     resetb_i,                 -- reset_i
                                                     clk_i,                    -- clk_i
                                                     enable_register_s,        -- enable_i
                                                     tempo_result_s(I));       -- s_0                             
 					end generate;
 
-    COMBINED_LAST_MAP: combined port map(polynomial_a_i(degree_minus_one),
-                                         polynomial_b_coeff_s,
-                                         lambda,
-                                         tempo_result_s(0),
-                                         enable0_table_s(degree_minus_one),
-                                         '0',
-                                         resetb_i,
-                                         clk_i,
-                                         enable_register_s, 
-                                         tempo_result_s(degree_minus_one));
+    COMBINED_LAST_MAP: combined port map(polynomial_a_i(degree_minus_one),    -- a_i
+                                         polynomial_b_coeff_s,                -- b_i
+                                         lambda,                              -- lambda_i
+                                         tempo_result_s(0),                   -- s_i        
+                                         enable0_table_s(degree_minus_one),   -- en0_i
+                                         enable_mod_phi_s,                    -- en1_i
+                                         resetb_i,                            -- reset_i
+                                         clk_i,                               -- clk_i
+                                         enable_register_s,                   -- enable_i
+                                         tempo_result_s(degree_minus_one));   -- s_0
 
-
-                                         
       result_o <= tempo_result_s;
 
-      enable0_table_debug <= enable0_table_s;
-      count_debug <= count_s;
-      polynomial_b_debug <= polynomial_b_coeff_s;
 end architecture polynomial_mult_arch;
 
 

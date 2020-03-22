@@ -1,10 +1,9 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use STD.textio.all;
-use ieee.std_logic_textio.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
+library source;
 
 entity ram_1_tb is
 end entity ram_1_tb;
@@ -15,9 +14,9 @@ architecture ram_1_tb_arch of ram_1_tb is
   component ram_1 is
     generic(
       w        : natural:=64; --tailles des mots;
-      e        : natural;--nb de mots
-      nbit_ram : natural;--nb de bit de l'addresse de la ram
-      ram_size : natural--taille de la ram
+      e        : natural:=64;--nb de mots
+      nbit_ram : natural:=64;--nb de bit de l'addresse de la ram
+      ram_size : natural:=64--taille de la ram
       );
   
     port(  -- pas de reset car le copro ne le contrôlera pas.
@@ -45,7 +44,7 @@ architecture ram_1_tb_arch of ram_1_tb is
 
 begin  --ram_1_tb_arch
 
-  dut : ram_1
+  RAM_1_MAP : ram_1
     generic map (
       w        => w_c,
       e        => e_c,
@@ -57,8 +56,8 @@ begin  --ram_1_tb_arch
       clock     => clock_s,
       data      => data_s,
       wren      => wren_s,
-      q         => q_s,
-      all_ram_o => all_ram_o_s);
+      q         => q_s);
+     -- all_ram_o => all_ram_o_s);
 
   clock_s <= not(clock_s) after 5 ns;
 
@@ -96,10 +95,10 @@ begin  --ram_1_tb_arch
 end architecture ram_1_tb_arch;
 
 
-configuration ram_1_tb_conf of ram_1_tb is
+ configuration ram_1_tb_conf of ram_1_tb is
   for ram_1_tb_arch
-    for dut : ram_1
-      use entity work.ram_1(ram_1_arch);
+    for RAM_1_MAP : ram_1
+      use entity source.ram_1(ram_1_arch);
     end for;
   end for;
-end configuration ram_1_tb_conf;
+ end configuration ram_1_tb_conf;
