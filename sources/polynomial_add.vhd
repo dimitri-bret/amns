@@ -25,7 +25,7 @@ begin
   begin
     if enable_i = '1' then
     	for i in 0 to degree-1 loop
-        R_s(i) <= std_logic_vector(resize(unsigned(A_i(i)) + unsigned(B_i(i)), 132));
+        R_s(i) <= std_logic_vector(resize(signed(A_i(i)) + signed(B_i(i)), 133));
     	end loop;
     end if;
   end process;

@@ -16,29 +16,24 @@ end entity  multiplexer_pe_tb;
 architecture multiplexer_pe_tb_arch of multiplexer_pe_tb is
 
 component multiplexer_pe is 
-        port (
-             bit130_i: in bit130;
-             bit128_i: in bit128;
-             en_i: in std_logic;
-             bit130_o: out bit130
-   );
+        port (bit132_i: in bit132;
+              bit129_i: in bit129;
+              en_i: in std_logic;
+              bit132_o: out bit132);
 end component;
 
-signal bit130_i_s: bit130 :="1010101100101011001010110010101110101011001010110010101100101011101010110010101100101011001010111010101100101011001010110010101110";
-signal bit128_i_s: bit128 :="10101011001010110010101100101011101010110010101100101011001010111010101100101011001010110010101110101011001010110010101100101011";
-signal bit130_o_s: bit130;
+signal bit132_i_s: bit132 :=133D"222323232518151555511";
+signal bit129_i_s: bit129 :=130D"9996262062626262412";
+signal bit132_o_s: bit132;
 signal en_i_s: std_logic :='1';
 
 begin
     en_i_s <= '0' after 50 ns;
 
-MULTIPLEXER_PE_MAP:  multiplexer_pe port map (bit130_i => bit130_i_s,
-                                              bit128_i => bit128_i_s, 
-                                                  en_i => en_i_s,
-				    	                      bit130_o => bit130_o_s);
-
-
-
+MULTIPLEXER_PE_MAP:  multiplexer_pe port map (bit132_i_s,
+                                              bit129_i_s, 
+                                              en_i_s,
+				    	                      bit132_o_s);
 end multiplexer_pe_tb_arch;
 
 

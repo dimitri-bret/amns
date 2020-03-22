@@ -33,9 +33,8 @@ begin
 enable_s <= '1' after 50 ns;
 
 
-polynomial_add_MAP: polynomial_add port map (
-                                  enable_i => enable_s,
-                                  A_i => A_s,
-                                  B_i => B_s,
-                                  R_o => R_s);
+polynomial_add_MAP: polynomial_add port map (enable_i => enable_s,
+                                                  A_i => A_s,
+                                                  B_i => B_s,
+                                                  R_o => R_s);
 end polynomial_add_tb_arch;

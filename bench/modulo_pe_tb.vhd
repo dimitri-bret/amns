@@ -21,15 +21,15 @@ component modulo_pe is
                   bit132_o: out bit132);
 end component;
 
-signal bit132_i_s: bit132 :="101001010110010101100101011001010110010101100101011001010110010101100101011001010110010101100101011001010110010101100101011001010110";
+signal bit132_i_s: bit132 := 133D"7035055149350123000002897335973297149526";
 signal en_i_s: std_logic := '1';
 signal bit132_o_s: bit132;
 
 begin
 en_i_s <= '0' after 50 ns;
-MODULO_PE_MAP: modulo_pe port map ( bit132_i => bit132_i_s,
-                                  en_i => en_i_s,
-							  bit132_o => bit132_o_s);
+MODULO_PE_MAP: modulo_pe port map (bit132_i_s,
+                                   en_i_s,
+							       bit132_o_s);
 end modulo_pe_tb_arch;
 
 

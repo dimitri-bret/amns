@@ -24,11 +24,11 @@ component pe is port ( a_i: in bit64;
                        p_o: out bit132);
 end component;
 
-signal a_s: bit64 := 64D"36026640407847848"; 
-signal b_s: bit64 := 64D"32919586486794702";
+signal a_s: bit64 := 65D"36026640407847848"; 
+signal b_s: bit64 := 65D"32919586486794702";
 signal en0_s: std_logic :='0';
 signal en1_s: std_logic :='0';
-signal s_i_s: bit132 := 132D"0"; 
+signal s_i_s: bit132 := 133D"0"; 
 signal s_o_s: bit132;
 
 begin

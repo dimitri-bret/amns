@@ -25,19 +25,18 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
                  clk_i: in std_logic;
               resetb_i: in std_logic; 
               enable_i: in std_logic;
-              enable_o: out std_logic_vector(0 to degree-1)); -- n = 7.
+              enable_o: out std_logic_vector(0 to degree-1)); --n = 7.
     end component lambda_lookup;
 
-    signal polynomial_b_coeff_s: bit64 := 64D"0";
+    signal polynomial_b_coeff_s: bit64 := 65D"0";
     
     signal first: integer := 0; 
 
     begin
       P0: process(clk_i)
       begin
-        -- polynomial_b_coeff_o <=  64D"0" when (count_i < 0 or count_i> degree_minus_one) else polynomial_b_i(count_i);
         if(falling_edge(clk_i) and count_i > 0) then
-          polynomial_b_coeff_s <= 64D"0" when (count_i> degree_minus_one) else polynomial_b_i(count_i);
+          polynomial_b_coeff_s <= 65D"0" when (count_i> degree_minus_one) else polynomial_b_i(count_i);
         else if (rising_edge(clk_i) and count_i = 0) then
           polynomial_b_coeff_s <= polynomial_b_i(0);
         end if;

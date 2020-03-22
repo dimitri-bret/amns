@@ -8,12 +8,11 @@ library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
 entity single_register is
-	port (
-			enable_i : in std_logic;
-			clk_i : in std_logic;
-			resetb_i : in std_logic;
-			p_i : in bit132;
-			s_o : out bit132);
+	port (enable_i : in std_logic;
+			 clk_i : in std_logic;
+		  resetb_i : in std_logic;
+			   p_i : in bit132;
+			   s_o : out bit132);
 end entity single_register;
 
 

@@ -27,8 +27,8 @@ architecture ram_1_tb_arch of ram_1_tb is
       q         : out std_logic_vector(w-1 downto 0));  -- to get the ram
   end component;
 
-  constant w_c        : natural := 4;
-  constant e_c        : natural := 2;
+  constant w_c        : natural := 64;
+  constant e_c        : natural := 4;
   constant nbit_ram_c : natural := 4;
   constant ram_size_c : natural := 16;
 
@@ -39,7 +39,7 @@ architecture ram_1_tb_arch of ram_1_tb is
   signal data_s      : std_logic_vector(w_c-1 downto 0);
   signal wren_s      : std_logic;
   signal q_s         : std_logic_vector(w_c-1 downto 0);
-  signal all_ram_o_s : std_logic_vector(ram_size_c*w_c-1 downto 0);  -- to get the
+ -- signal all_ram_o_s : std_logic_vector(ram_size_c*w_c-1 downto 0);  -- to get the
                                                                  -- ram during simulation
 
 begin  --ram_1_tb_arch
@@ -63,9 +63,9 @@ begin  --ram_1_tb_arch
 
  process
   begin
-    data_s    <= x"0";
+    data_s    <= 64D"0";
     wren_s    <= '0';
-    address_s <= x"0";
+    address_s <= 64D"0";
     wait for 10 ns;
     data_s    <= x"1";
     wren_s    <= '1';

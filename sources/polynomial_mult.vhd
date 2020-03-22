@@ -21,24 +21,23 @@ end entity polynomial_mult;
 architecture polynomial_mult_arch of polynomial_mult is
 
     component combined is
-        port (
-            a_i: in bit64;
-            b_i: in bit64;
-       lambda_i: in bit2;
-            s_i: in bit132;
-          en0_i: in std_logic;
-          en1_i: in std_logic;
-       resetb_i: in std_logic;
-          clk_i: in std_logic;
-       enable_i: in std_logic;
-            s_o: out bit132);
+        port (a_i: in bit64;
+              b_i: in bit64;
+         lambda_i: in bit2;
+              s_i: in bit132;
+            en0_i: in std_logic;
+            en1_i: in std_logic;
+         resetb_i: in std_logic;
+            clk_i: in std_logic;
+         enable_i: in std_logic;
+              s_o: out bit132);
     end component;
 
 
   component fsm_polynomial_mult is
     port (polynomial_b_i: in input_polynomial;
                    clk_i: in std_logic;
-                   count_i: in integer;
+                 count_i: in integer;
                 resetb_i: in std_logic;
                 enable_i: in std_logic;
                 enable_o: out std_logic_vector(0 to degree -1);
@@ -47,9 +46,9 @@ end component;
 
   component counter is
 	port (clock_i : in std_logic;
-		  resetb_i : in std_logic;
-		  enable_i : in std_logic;
-			count_o : out integer);
+		   resetb_i : in std_logic;
+		   enable_i : in std_logic;
+			  count_o : out integer);
 end component;
 
   signal tempo_result_s: polynomial;
@@ -73,7 +72,7 @@ begin
 			                           count_s); -- count_o
 
 
-   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map( polynomial_b_i,     
+   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map(polynomial_b_i,     
                                                          clk_i,               -- clk_i
                                                          count_s,             -- count_s
                                                          resetb_i,            -- resetb_i

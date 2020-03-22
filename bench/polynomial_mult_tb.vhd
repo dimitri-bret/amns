@@ -16,13 +16,13 @@ end entity  polynomial_mult_tb;
 architecture polynomial_mult_tb_arch of polynomial_mult_tb is
 
     component polynomial_mult is
-        port ( polynomial_a_i: in input_polynomial;
-               polynomial_b_i: in input_polynomial;
-                        clk_i: in std_logic;
-                     resetb_i: in std_logic;
-                     enable_i: in std_logic;
-               with_mod_phi_i: in std_logic;
-                     result_o: out polynomial);
+        port (polynomial_a_i: in input_polynomial;
+              polynomial_b_i: in input_polynomial;
+                       clk_i: in std_logic;
+                    resetb_i: in std_logic;
+                    enable_i: in std_logic;
+              with_mod_phi_i: in std_logic;
+                    result_o: out polynomial);
     end component;
 
 signal polynomial_a_i_s: input_polynomial:= A_POLYNOMIAL;
@@ -39,13 +39,11 @@ begin
 
 POLYNOMIAL_PE_MAP: polynomial_mult port map (polynomial_a_i_s,  -- a_i
                                              polynomial_b_i_s,  -- b_i
-                                             clk_i_s,           --clk_i
-                                             resetb_i_s,        --resetb_i
-                                             enable_i_s,        --enable_i
-                                             '1',               --with_mod_phi_i
-                                             result_o_s,
-                                             enable_mod_phi_debug_s
-                                             );        --result_o
+                                             clk_i_s,           -- clk_i
+                                             resetb_i_s,        -- resetb_i
+                                             enable_i_s,        -- enable_i
+                                             '1',               -- with_mod_phi_i
+                                             result_o_s);       -- result_o
                                                    
                         
 end polynomial_mult_tb_arch;
