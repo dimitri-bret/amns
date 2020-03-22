@@ -62,21 +62,21 @@ end component;
 
 
 begin
-   enable_register_s <= '0' when count_s <7 else '1';
+   enable_register_s <= '0' when count_s <degree_plus_one else '1'; -- signal for saving result
+
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
 			                           resetb_i, -- resetb_i
 			                           enable_i, -- enable_i
 			                           count_s); -- count_o
 
-   
 
-   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map(polynomial_b_i,     -- count_i
-                                                        clk_i,               -- clk_i
-                                                        count_s,             -- count_s
-                                                        resetb_i,            -- resetb_i
-                                                        enable_i,            -- enable_i
-                                                        enable0_table_s,     --enable_o
-                                                        polynomial_b_coeff_s);-- s_o
+   FSM_POLYNOMIAL_MULT_MAP: fsm_polynomial_mult port map( polynomial_b_i,     
+                                                         clk_i,               -- clk_i
+                                                         count_s,             -- count_s
+                                                         resetb_i,            -- resetb_i
+                                                         enable_i,            -- enable_i
+                                                         enable0_table_s,     --enable_o
+                                                         polynomial_b_coeff_s);-- s_o
 
 
     COMBINED_GEN: for I in 0 to degree_minus_two generate

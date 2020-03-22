@@ -140,8 +140,10 @@ def to_Binary(A,p,n,gm,r,l,phi,delta,m,mp):#ok
 
 def AMNS_Mul(A,B,p,n,gm,r,l,phi,delta,m,mp):#ok
     V=mul_Poly(A,B,n,l)
+    
     V0=red_Mod_phi(V,phi)
     Q=mul_Poly(V0,mp,n,l)
+    
     Q2=red_Mod_phi(Q,phi)
     #S=V+Q*M
     QM=mul_Poly(Q2,m,n,l)
