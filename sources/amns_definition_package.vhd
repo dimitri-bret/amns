@@ -12,7 +12,7 @@ use ieee.numeric_std.all;
 package amns_definition_package is
 
 	constant degree : integer := 7;
-	constant degree_plus_one: integer := degree + 1; 
+	constant degree_plus_one: integer := degree + 1;
 	constant degree_minus_one: integer := degree - 1;
 	constant degree_minus_two: integer := degree - 2;
 
@@ -48,16 +48,16 @@ package amns_definition_package is
 										  		65D"2035833437045692",
 										  		65D"10564212859445114",
 												65D"11879294980848988");
-										
-	
-	--m_p: AMNS m_p constant such as defined in the python script 
-	constant m_p: input_polynomial := (	65D"4061600423064578463",  
-									   	65D"1002183804661793117",  
-										65D"4469914478408161405",  
-										65D"13451109246071015664",  
-										65D"7565988620960822268",  
-										65D"5536628105856800310",  
+
+
+	--m_p: AMNS m_p constant such as defined in the python script
+	constant m_p: input_polynomial := (	65D"4061600423064578463",
+									   	65D"1002183804661793117",
+										65D"4469914478408161405",
+										65D"13451109246071015664",
+										65D"7565988620960822268",
+										65D"5536628105856800310",
 										65D"13834881095578633368");
 
-	-- constant m: input_polynomial := ();									
+	-- constant m: input_polynomial := ();
 end package amns_definition_package;
