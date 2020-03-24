@@ -9,14 +9,14 @@ use AMNSLibrary.amns_definition_package.all;
 
 entity div_phi is -- division par phi = 64 -> décalage de 6
 	port (
-        A_i: in input_polynomial;
+        A_i: in polynomial;
         enable_i: in std_logic;
-        S_o: out input_polynomial);
+        S_o: out polynomial);
 end entity div_phi;
 
 architecture div_phi_arch of div_phi is
 
-signal S_s : input_polynomial;
+signal S_s : polynomial;
 
 begin
 
@@ -24,7 +24,7 @@ begin
   begin
     if enable_i = '1' then
     	for i in 0 to degree-1 loop
-        S_s(i) <= (A_i(i)(64) and 7B"1111111") & A_i(i)(63 downto 6);
+        S_s(i) <= (A_i(i)(132) and 65B"11111111111111111111111111111111111111111111111111111111111111111") & A_i(i)(131 downto 64);
     	end loop;
     end if;
   end process;

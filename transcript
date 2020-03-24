@@ -1,4 +1,4 @@
-vsim bench.conv_polynomial_tb
+vsim bench.div_phi_tb
 # //  ModelSim PE Student Edition 10.4a Apr  7 2015 
 # //
 # //  Copyright 1991-2015 Mentor Graphics Corporation
@@ -18,29 +18,31 @@ vsim bench.conv_polynomial_tb
 # // FOR HIGHER EDUCATION PURPOSES ONLY
 # //
 # vsim 
-# Start time: 12:21:07 on Mar 24,2020
+# Start time: 15:57:54 on Mar 24,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading amnslibrary.amns_definition_package
-# Loading bench.conv_polynomial_tb(conv_polynomial_tb_arch)
-# Loading source.conv_polynomial(conv_polynomial_arch)
+# Loading bench.div_phi_tb(div_phi_tb_arch)
+# Loading source.div_phi(div_phi_arch)
 add wave -position insertpoint  \
-sim:/conv_polynomial_tb/bit132_i_s \
-sim:/conv_polynomial_tb/bit64_o_s
+sim:/div_phi_tb/enable_s \
+sim:/div_phi_tb/A_s \
+sim:/div_phi_tb/S_s
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: Dimitri  Hostname: DESKTOP-MFHMU3D  ProcessID: 15572
 # 
-#           Attempting to use alternate WLF file "./wlft8gyzbz".
+#           Attempting to use alternate WLF file "./wlft6b9hm8".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft8gyzbz
+#           Using alternate file: ./wlft6b9hm8
 # 
 run
 run
 run
 run
-# End time: 12:21:36 on Mar 24,2020, Elapsed time: 0:00:29
+run
+# End time: 15:58:10 on Mar 24,2020, Elapsed time: 0:00:16
 # Errors: 0, Warnings: 2
