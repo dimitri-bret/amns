@@ -13,7 +13,11 @@ entity fsm_polynomial_mult is
                  count_i: in integer;
                 resetb_i: in std_logic;
                 enable_i: in std_logic;
-                enable_o: out std_logic_vector(0 to degree -1);
+          with_mod_phi_i: in std_logic;
+              finished_o: out std_logic;
+               enable0_o: out std_logic_vector(0 to degree -1);
+               enable1_o: out std_logic;
+         enable_output_o: out std_logic;
     polynomial_b_coeff_o: out bit64);
 end entity fsm_polynomial_mult;
 
@@ -23,16 +27,21 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
     component lambda_lookup is
         port ( count_i: in integer;
                  clk_i: in std_logic;
-              resetb_i: in std_logic; 
+              resetb_i: in std_logic;
               enable_i: in std_logic;
               enable_o: out std_logic_vector(0 to degree-1)); --n = 7.
     end component lambda_lookup;
 
     signal polynomial_b_coeff_s: bit64 := 65D"0";
-    
-    signal first: integer := 0; 
+
+    signal first: integer := 0;
 
     begin
+
+      enable_output_o <= '0' when count_i <degree_plus_one else '1'; -- signal for saving result
+      enable1_o <= with_mod_phi_i when count_i = degree else '0';
+      finished_o <= '1' when count_i > degree else '0';
+
       P0: process(clk_i)
       begin
         if(falling_edge(clk_i) and count_i > 0) then
@@ -42,12 +51,12 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
         end if;
       end if;
       end process;
-    
+
     LAMBDA_LOOKUP_MAP: lambda_lookup port map(count_i,
                                               clk_i,
                                               resetb_i,
                                               enable_i,
-                                              enable_o);
-    
+                                              enable0_o);
+
     polynomial_b_coeff_o <= polynomial_b_coeff_s;
 end fsm_polynomial_mult_arch;
