@@ -8,11 +8,10 @@ library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
 entity polynomial_add is
-	port (
-        enable_i: in std_logic;
-        A_i: in input_polynomial;
-        B_i: in input_polynomial;
-        R_o: out polynomial);
+	port (enable_i: in std_logic;
+             A_i: in input_polynomial;
+             B_i: in input_polynomial;
+             R_o: out polynomial);
 end entity polynomial_add;
 
 architecture polynomial_add_arch of polynomial_add is

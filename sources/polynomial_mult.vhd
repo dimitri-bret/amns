@@ -8,12 +8,13 @@ library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
 entity polynomial_mult is
-	port (polynomial_a_i: in input_polynomial;
+	port ( polynomial_a_i: in input_polynomial;
          polynomial_b_i: in input_polynomial;
                   clk_i: in std_logic;
                resetb_i: in std_logic;
                enable_i: in std_logic;
          with_mod_phi_i: in std_logic;
+             finished_o: out std_logic;
                result_o: out polynomial);
 end entity polynomial_mult;
 
@@ -42,14 +43,14 @@ architecture polynomial_mult_arch of polynomial_mult is
                 enable_i: in std_logic;
                 enable_o: out std_logic_vector(0 to degree -1);
     polynomial_b_coeff_o: out bit64);
-end component;
+  end component;
 
   component counter is
-	port (clock_i : in std_logic;
-		   resetb_i : in std_logic;
-		   enable_i : in std_logic;
-			  count_o : out integer);
-end component;
+	  port (clock_i : in std_logic;
+		     resetb_i : in std_logic;
+		     enable_i : in std_logic;
+			   count_o : out integer);
+  end component;
 
   signal tempo_result_s: polynomial;
   signal count_s: integer := 0;
@@ -65,6 +66,7 @@ begin
 
    enable_register_s <= '0' when count_s <degree_plus_one else '1'; -- signal for saving result
    enable_mod_phi_s <= with_mod_phi_i when count_s = degree else '0';
+   finished_o <= '1' when count_s > degree else '0';
 
    COUNTER_MAP: counter port map(clk_i,    -- clk_i
 			                           resetb_i, -- resetb_i

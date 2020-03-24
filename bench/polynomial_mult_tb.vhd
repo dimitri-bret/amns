@@ -22,6 +22,7 @@ architecture polynomial_mult_tb_arch of polynomial_mult_tb is
                     resetb_i: in std_logic;
                     enable_i: in std_logic;
               with_mod_phi_i: in std_logic;
+                  finished_o: out std_logic;
                     result_o: out polynomial);
     end component;
 
@@ -30,6 +31,7 @@ signal polynomial_b_i_s: input_polynomial:= B_POLYNOMIAL;
 signal clk_i_s: std_logic :='0';
 signal resetb_i_s: std_logic := '0';
 signal enable_i_s: std_logic:='0';
+signal finished_s: std_logic;
 signal result_o_s: polynomial;
 
 
@@ -43,6 +45,7 @@ POLYNOMIAL_PE_MAP: polynomial_mult port map (polynomial_a_i_s,  -- a_i
                                              resetb_i_s,        -- resetb_i
                                              enable_i_s,        -- enable_i
                                              '1',               -- with_mod_phi_i
+                                             finished_s,        
                                              result_o_s);       -- result_o
                                                    
                         

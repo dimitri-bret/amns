@@ -16,7 +16,7 @@ entity ram_1 is
     address   : in  std_logic_vector(nbit_ram-1 downto 0);
     clock     : in  std_logic;
     data      : in  std_logic_vector(w-1 downto 0); -- port d'écriture ram
-    wren      : in  std_logic;
+    wren      : in  std_logic;  -- write enable =>  data written
     q         : out std_logic_vector(w-1 downto 0));  -- to get the ram
 end entity ram_1;
 
