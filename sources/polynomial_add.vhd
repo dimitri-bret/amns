@@ -9,8 +9,8 @@ use AMNSLibrary.amns_definition_package.all;
 
 entity polynomial_add is
 	port (enable_i: in std_logic;
-             A_i: in input_polynomial;
-             B_i: in input_polynomial;
+             A_i: in polynomial;
+             B_i: in polynomial;
              R_o: out polynomial);
 end entity polynomial_add;
 
@@ -23,8 +23,8 @@ begin
   process(A_i, B_i, enable_i)
   begin
     if enable_i = '1' then
-    	for i in 0 to degree-1 loop
-        R_s(i) <= std_logic_vector(resize(signed(A_i(i)) + signed(B_i(i)), 133));
+    	for i in 0 to degree_minus_one loop
+        R_s(i) <= std_logic_vector(signed(A_i(i)) + signed(B_i(i)));
     	end loop;
     end if;
   end process;
