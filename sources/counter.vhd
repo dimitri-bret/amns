@@ -21,7 +21,7 @@ end entity counter;
 
 architecture counter_arch of counter is
 
-signal count_s : integer range 0 to degree_plus_one + 1 := 0;
+signal count_s : integer range 0 to degree_plus_two := 0;
 signal security_s : std_logic := '0';	-- ce flag permet de ralonger le cycle 0 d'un coup d'horloge si on appuie sur "enable" trop proche d'un front montant et que le signal n'a pas le temps de se propager.
 
 begin
@@ -31,7 +31,7 @@ begin
 		if clock_i'event and clock_i = '1' then
 			if resetb_i = '1' then	-- reset actif à l'état haut
 				count_s <= 0;
-			elsif enable_i = '1' and count_s < degree_plus_one + 1 and security_s = '1' then
+			elsif enable_i = '1' and count_s < degree_plus_two and security_s = '1' then
 				count_s <= count_s+1;
 			else
 				count_s <= count_s;

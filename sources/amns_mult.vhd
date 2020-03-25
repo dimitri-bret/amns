@@ -127,8 +127,6 @@ begin
                                      enable_i => finished_qm_s,
                                      S_o => ab_amns_o);
 
-      ab_amns_o <= ab_amns_o;
-
 
 
       -- debug

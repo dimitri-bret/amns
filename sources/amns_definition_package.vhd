@@ -12,6 +12,7 @@ use ieee.numeric_std.all;
 package amns_definition_package is
 
 	constant degree : integer := 7;
+	constant degree_plus_two: integer := degree + 2;
 	constant degree_plus_one: integer := degree + 1;
 	constant degree_minus_one: integer := degree - 1;
 	constant degree_minus_two: integer := degree - 2;
