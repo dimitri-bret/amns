@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description Control the b_i operand given in the Processing Element according to the count_i
+-- @description Control the signals used to control the processing elements and coefficients
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

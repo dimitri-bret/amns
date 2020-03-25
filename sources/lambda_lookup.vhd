@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description General Processing Element used for modular multiplication
+-- @description Lambda lookup table to control each step
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

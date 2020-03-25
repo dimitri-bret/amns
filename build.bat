@@ -1,6 +1,6 @@
 cls
 
-:: set your project folder here
+:: Set your project folder here
 set PROJECTNAME=C:\Users\Dimitri\Documents\amns
 
 :: Current working directory
@@ -22,11 +22,9 @@ vlib %PROJECTNAME%\lib\AMNSLibrary
 vmap AMNSLibrary %PROJECTNAME%\lib\AMNSLibrary
 
 :: compile libs
-echo "compile libs"
 vcom %PROJECTNAME%\sources\amns_definition_package.vhd -work AMNSLibrary
 
-echo "compile sources"
-::vcom -work source %PROJECTNAME%\sources\ram_1.vhd
+echo "Compile sources"
 vcom -work source %PROJECTNAME%\sources\add_pe.vhd
 vcom -work source %PROJECTNAME%\sources\mult64_pe.vhd
 vcom -work source %PROJECTNAME%\sources\mult128_2_pe.vhd
@@ -47,7 +45,6 @@ vcom -work source %PROJECTNAME%\sources\conv_polynomial.vhd
 
 
 echo "compile test bench"
-::vcom -work bench %PROJECTNAME%\bench\ram_1_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\add_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\mult64_pe_tb.vhd
 ::vcom -work bench %PROJECTNAME%\bench\mult128_2_pe_tb.vhd

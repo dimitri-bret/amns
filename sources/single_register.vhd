@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description General Processing Element used for modular multiplication
+-- @description Single Register used for data memorisation between each clock cycle
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

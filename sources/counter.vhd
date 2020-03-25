@@ -1,22 +1,20 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description General Processing Element used for modular multiplication
+-- @description Counter used by the fsm controler
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
--- normalement le counter doit aller de 0 à degree + 2
--- nous on considère que le zéro est l'état idle, puis on compte de 1 à degree.
+-- normalement le counter doit aller de 0 à degree + 2 (afin d'avoir 7 + 1 coup de flottement afin de chainer les multiplications polynomiales)
+-- on considère que le zéro est l'état idle, puis on compte de 1 à degree.
 
 entity counter is
-	port (
-			clock_i : in std_logic;
-			resetb_i : in std_logic;
-			enable_i : in std_logic;
-			count_o : out integer
-			);
+	port (clock_i : in std_logic;
+		  resetb_i : in std_logic;
+		  enable_i : in std_logic;
+		  count_o : out integer);
 end entity counter;
 
 architecture counter_arch of counter is

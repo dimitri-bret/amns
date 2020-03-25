@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description Modulo 2^64 function on en_i signal in the processing unit.
+-- @description Modulo 2^64 function on en_i signal in the processing unit
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

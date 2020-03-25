@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description internal multiplexer for the processing element
+-- @description Internal multiplexer for the processing element
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

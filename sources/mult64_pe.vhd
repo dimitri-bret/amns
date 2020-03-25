@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description 64 bit multiplication used for the processing element
+-- @description 64 bit multiplication used by the processing element
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;

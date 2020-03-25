@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description General Processing Element used for modular multiplication
+-- @description AMNS Multiplication
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -12,8 +12,10 @@ entity amns_mult is
             b_i: in input_polynomial;
           clk_i: in std_logic;
        resetb_i: in std_logic;
+     finished_o: out std_logic;
       ab_amns_o: out input_polynomial;
       
+      -- ports for degub
       v0_converted_debug: out input_polynomial;
       finished_v0_debug: out std_logic;
       q2_converted_debug: out input_polynomial;
@@ -51,9 +53,9 @@ end component;
 
 component div_phi is
       port (enable_i: in std_logic;
-                 A_i: in polynomial;
-                 S_o: out input_polynomial);
-    end component;
+                 a_i: in polynomial;
+                 s_o: out input_polynomial);
+      end component;
 
 
 signal v_s: polynomial;
@@ -77,7 +79,7 @@ signal result_s: polynomial;
 
 begin
     -- compute V= A*B
-    POLYNOMIAL_MULT_MAP_1: polynomial_mult port map( polynomial_a_i => b_i,
+    POLYNOMIAL_MULT_MAP_1: polynomial_mult port map(polynomial_a_i => b_i,
                                                     polynomial_b_i => a_i,
                                                     clk_i => clk_i,
                                                     resetb_i => resetb_i,
@@ -86,8 +88,8 @@ begin
                                                     finished_o => finished_v_s,
                                                     result_o => v_s);
     -- compute V0 = A*B[phi]
-    POLYNOMIAL_MULT_MAP_2: polynomial_mult port map( polynomial_a_i => b_i,
-                                                     polynomial_b_i => a_i,
+    POLYNOMIAL_MULT_MAP_2: polynomial_mult port map(polynomial_a_i => b_i,
+                                                    polynomial_b_i => a_i,
                                                     clk_i => clk_i,
                                                     resetb_i => resetb_i,
                                                     enable_i => '1',
@@ -119,15 +121,15 @@ begin
 
       -- compute R = V + QM
       POLYNOMIAL_ADD_MAP: polynomial_add port map(enable_i => finished_qm_s,
-                                                   A_i => v_s,
-                                                   B_i => qm_s,
-                                                   R_o => r_s);
+                                                  A_i => v_s,
+                                                  B_i => qm_s,
+                                                  R_o => r_s);
       -- compute S = R/phi
-      DIV_PHI_MAP:  div_phi port map(A_i => r_s,
+      DIV_PHI_MAP:  div_phi port map(a_i => r_s,
                                      enable_i => finished_qm_s,
-                                     S_o => ab_amns_o);
+                                     s_o => ab_amns_o);
 
-
+      finished_o <= finished_qm_s;
 
       -- debug
       v0_converted_debug <= v0_converted_s;
