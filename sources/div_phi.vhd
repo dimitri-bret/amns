@@ -11,10 +11,16 @@ entity div_phi is -- division par phi = 64 -> décalage de 6
 	port (
         A_i: in polynomial;
         enable_i: in std_logic;
-        S_o: out polynomial);
+        S_o: out input_polynomial);
 end entity div_phi;
 
 architecture div_phi_arch of div_phi is
+
+  component conv_polynomial is
+    port (a_i: in polynomial;
+converted_a_o: out input_polynomial);
+end component;
+
 
 signal S_s : polynomial;
 
@@ -29,6 +35,6 @@ begin
     end if;
   end process;
 
-  S_o <= S_s;
-
+  CONV_POLYNOMIAL_MAP: conv_polynomial port map(S_s, S_o);                                               
+  
 end architecture div_phi_arch;

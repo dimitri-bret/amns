@@ -12,7 +12,7 @@ entity amns_mult is
             b_i: in input_polynomial;
           clk_i: in std_logic;
        resetb_i: in std_logic;
-      ab_amns_o: out polynomial;
+      ab_amns_o: out input_polynomial;
       
       v0_converted_debug: out input_polynomial;
       finished_v0_debug: out std_logic;
@@ -52,7 +52,7 @@ end component;
 component div_phi is
       port (enable_i: in std_logic;
                  A_i: in polynomial;
-                 S_o: out polynomial);
+                 S_o: out input_polynomial);
     end component;
 
 

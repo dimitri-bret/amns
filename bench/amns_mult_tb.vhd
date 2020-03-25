@@ -19,7 +19,7 @@ architecture amns_mult_tb_arch of amns_mult_tb is
                                  b_i: in input_polynomial;
                                  clk_i: in std_logic;
                                  resetb_i: in std_logic;
-                                 ab_amns_o: out polynomial;
+                                 ab_amns_o: out input_polynomial;
  
                                  v0_converted_debug: out input_polynomial;
                                  finished_v0_debug: out std_logic;
@@ -34,7 +34,7 @@ signal polynomial_a_s: input_polynomial:= A_POLYNOMIAL;
 signal polynomial_b_s: input_polynomial:= B_POLYNOMIAL;
 signal clk_i_s: std_logic := '0';
 signal resetb_i_s: std_logic := '0';
-signal ab_amns_s: polynomial;
+signal ab_amns_s: input_polynomial;
 signal v0_converted_debug_s: input_polynomial;
 signal finished_v0_debug_s: std_logic;
 signal q2_converted_debug_s: input_polynomial;
