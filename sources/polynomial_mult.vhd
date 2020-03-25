@@ -15,7 +15,8 @@ entity polynomial_mult is
                enable_i: in std_logic;
          with_mod_phi_i: in std_logic;
              finished_o: out std_logic;
-               result_o: out polynomial);
+               result_o: out polynomial;
+               count_debug: out integer);
 end entity polynomial_mult;
 
 
@@ -111,5 +112,5 @@ begin
                                          tempo_result_s(degree_minus_one));   -- s_0
 
       result_o <= tempo_result_s;
-
+      count_debug <= count_s;
 end architecture polynomial_mult_arch;

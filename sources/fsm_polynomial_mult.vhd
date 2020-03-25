@@ -38,7 +38,7 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
 
     begin
 
-      enable_output_o <= '0' when count_i <degree_plus_one else '1'; -- signal for saving result
+      enable_output_o <= '1' when enable_i = '0' else '0' when count_i <degree_plus_one else '1';  -- signal for freezing registers and saving result
       enable1_o <= with_mod_phi_i when count_i = degree else '0';
       finished_o <= '1' when count_i > degree else '0';
 
