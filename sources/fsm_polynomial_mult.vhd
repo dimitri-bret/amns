@@ -33,6 +33,7 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
     end component lambda_lookup;
 
     signal polynomial_b_coeff_s: bit64 := 65D"0";
+    signal finished_s: std_logic := '0';
 
     signal first: integer := 0;
 
@@ -40,7 +41,8 @@ architecture fsm_polynomial_mult_arch of fsm_polynomial_mult is
 
       enable_output_o <= '1' when enable_i = '0' else '0' when count_i <degree_plus_one else '1';  -- signal for freezing registers and saving result
       enable1_o <= with_mod_phi_i when count_i = degree else '0';
-      finished_o <= '1' when count_i > degree else '0';
+      finished_o <= '1' when count_i > degree_plus_one else '0';
+      --finished_o <= finished_s;
 
       P0: process(clk_i)
       begin

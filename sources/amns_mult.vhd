@@ -61,6 +61,7 @@ signal finished_v_s: std_logic;
 
 signal v0_s: polynomial;
 signal v0_converted_s: input_polynomial;
+
 signal finished_v0_s: std_logic;
 
 signal q2_s: polynomial;
