@@ -1,6 +1,6 @@
 -- @author Dimitri Bret
 -- @author Clement Dargein
--- @description General Processing Element used for modular multiplication
+-- @description Combinaison of processing element and register used to process each step of polynomial multiplication
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -8,8 +8,7 @@ library AMNSLibrary;
 use AMNSLibrary.amns_definition_package.all;
 
 entity combined is
-	port (
-        a_i: in bit64;
+	port (a_i: in bit64;
         b_i: in bit64;
         lambda_i: in bit2;
         s_i: in bit132;
@@ -25,8 +24,7 @@ end entity combined;
 architecture combined_arch of combined is
 
 component pe
-  port (
-        a_i: in bit64;
+  port (a_i: in bit64;
         b_i: in bit64;
         lambda_i: in bit2;
         s_i: in bit132;
@@ -37,33 +35,28 @@ end component;
 
 component single_register
   port (enable_i : in std_logic;
-           clk_i : in std_logic;
+        clk_i : in std_logic;
         resetb_i : in std_logic;
-             p_i : in bit132;
-             s_o : out bit132);
+        p_i : in bit132;
+        s_o : out bit132);
 end component;
 
 signal p_s : bit132;
 
 begin
+  PE1_MAP : pe port map (a_i => a_i,
+                     b_i => b_i,
+                     lambda_i => lambda_i,
+                     s_i => s_i,
+                     en0_i => en0_i,
+                     en1_i => en1_i,
+                     p_o => p_s);
 
-  PE1 : pe port map (
-    a_i => a_i,
-    b_i => b_i,
-    lambda_i => lambda_i,
-    s_i => s_i,
-    en0_i => en0_i,
-    en1_i => en1_i,
-    p_o => p_s
-  );
-
-  REG1 : single_register port map (
-    enable_i => enable_i,
-    clk_i => clk_i,
-    resetb_i => resetb_i,
-    p_i => p_s,
-    s_o => s_o
-  );
+  REG1_MAP : single_register port map (enable_i => enable_i,
+                                   clk_i => clk_i,
+                                   resetb_i => resetb_i,
+                                   p_i => p_s,
+                                   s_o => s_o);
 
 end architecture combined_arch;
 

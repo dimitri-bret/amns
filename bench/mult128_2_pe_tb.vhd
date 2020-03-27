@@ -16,24 +16,18 @@ end entity  mult128_2_pe;
 architecture mult128_2_pe_tb_arch of mult128_2_pe is
 
 component mult128_2_pe is 
-                    port (
-                    bit128_i: in bit128;
-                    bit2_i: in bit2;
-                    bit130_o: out bit130
-                    );
+    port (bit129_i: in bit129;
+            bit2_i: in bit2;
+          bit132_o: out bit132);
 end component;
 
-signal bit128_i_s: bit128 :="10101011001010110010101100101011101010110010101100101011001010111010101100101011001010110010101110101011001010110010101100101011";
-signal bit2_i_s: bit2 :="10";
-signal bit130_o_s: bit130;
+signal bit129_i_s: bit129 :="1010101100101101100101011001010111101010110010101100101011001010111010101100101011001010110010101110101011001010110010101100101011";
+signal bit2_i_s: bit2 :="010";
+signal bit132_o_s: bit132;
 
 begin
-MULT128_2_PE_MAP: mult128_2_pe port map ( bit128_i => bit128_i_s,
-							              bit2_i => bit2_i_s, 
-							              bit130_o => bit130_o_s);
 
+MULT128_2_PE_MAP: mult128_2_pe port map (bit129_i_s,
+                                         bit2_i_s, 
+							             bit132_o_s);
 end mult128_2_pe_tb_arch;
-
-
-
-	
